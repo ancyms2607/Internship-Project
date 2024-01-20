@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Subject = require("../../models/SubjectModel");
+const verifyJWT=require('../../middleware/verifyJWT')
 
-router.get("/getSubject", async (req, res) => {
+router.get("/getSubject", verifyJWT,async (req, res) => {
   try {
     let subject = await Subject.find();
     if (!subject) {
@@ -22,29 +23,51 @@ router.get("/getSubject", async (req, res) => {
   }
 });
 
-router.post("/addSubject", async (req, res) => {
-  let { name, code } = req.body;
+
+router.post("/addSubject", verifyJWT, async (req, res) => {
+  let { Course, ProjectTopic, Batch, Mentor } = req.body;
+
   try {
-    let subject = await Subject.findOne({ code });
-    if (subject) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Subject Already Exists" });
-    }
-    await Subject.create({
-      name,
-      code,
+
+    // Create a new subject
+    let newSubject = await Subject.create({
+      Course,
+      ProjectTopic,
+      Batch,
+      Mentor
     });
+
     const data = {
       success: true,
       message: "Subject Added!",
     };
+
+    // Save the newly created subject
+    await newSubject.save();
+
     res.json(data);
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 });
+
+
+router.put("/editSubject/:id", verifyJWT ,async(req,res)=>{
+  try {
+    const id=req.params;
+    const subject = await Subject.findById(id);
+    if(!subject){
+        return res.status(204).json({'message': `No subject matches ID ${req.params.id}`});
+    }
+    const updateSubject = await Subject.findByIdAndUpdate(id, req.body, {new:true});
+    res.status(200).json({'message': 'Subject  updated successfully'})
+    
+} catch (error) {
+    res.status(500).json({ error: error.message });
+}
+}
+)
 
 router.delete("/deleteSubject/:id", async (req, res) => {
   try {

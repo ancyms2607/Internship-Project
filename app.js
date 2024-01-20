@@ -15,14 +15,14 @@ const connectDB=require('./config/dbconnection');
 
 const AuthRoutes=require('./routes/api/AuthRoutes');
 const RefreshRoutes = require('./routes/api/RefreshRoutes');
-const ProjectRoutes=require('./routes/api/ProjectRoutes');
-const SublistRoutes=require('./routes/api/SublistRoutes');
-const TeamManageRoutes=require('./routes/api/TeamManageRoutes');
-const GradeRoutes=require('./routes/api/GradeRoutes');
+const subjectRoutes= require('./routes/api/subjectRoutes');
+const MentorRoutes=require('./routes/api/MentorRoutes');
+const ProjectTopicRoutes=require('./routes/api/ProjectTopicRoutes')
+const SubmissionListRoutes=require('./routes/api/SubmissionListRoutes');
 const EvaluateRoutes=require('./routes/api/EvaluateRoutes');
+const RefmatRoutes=require('./routes/api/RefmatRoutes')
 const UserRoutes=require('./routes/api/UserRoutes');
-const SubjectRoutes=require('./routes/api/subjectRoutes');
-const MentorRoutes=require('./routes/api/MentorRoutes')
+
 
 // Connect to MongoDB
 const newConnectDB = async () => {
@@ -66,14 +66,13 @@ app.use(morgan('dev'));
  //Routes
 app.use('/api/v1/auth', AuthRoutes)
 app.use('/api/v1/refresh', RefreshRoutes);
-app.use('/api/v1/project', ProjectRoutes)
-app.use('/api/v1/sublist', SublistRoutes);
-app.use('/api/v1/teammanage', TeamManageRoutes);
-app.use('/api/v1/grade',GradeRoutes);
+app.use('/api/v1/auth/subject', subjectRoutes);
+app.use('api/v1/mentor', MentorRoutes);
+app.use('/api/v1/project', ProjectTopicRoutes)
+app.use('/api/v1/submissionlist', SubmissionListRoutes);
 app.use('/api/v1/evaluate', EvaluateRoutes);
 app.use('/api/v1/user',UserRoutes);
-app.use('/api/v1/subject', SubjectRoutes);
-app.use('/api/v1/mentor',MentorRoutes);
+
 
 
 

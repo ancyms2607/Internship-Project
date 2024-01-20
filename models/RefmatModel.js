@@ -2,8 +2,8 @@ const mongoose=require('mongoose');
 
 const RefmatSchema=mongoose.Schema({
 
-    live_session: String,
-    refences:String
+    
+    references:String
 
 })
 

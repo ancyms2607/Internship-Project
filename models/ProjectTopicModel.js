@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const GroupSchema = new Schema({
-    group: {
-        type: Number,
-    },
+const ProjectTopicSchema = new Schema({
+
     project_topic:{
+        type:String
+    },
+    group:{
         type:String
     },
     team_members: {
@@ -13,4 +14,4 @@ const GroupSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('groupdata', GroupSchema);
+module.exports = mongoose.model('projectTopic', GroupSchema);

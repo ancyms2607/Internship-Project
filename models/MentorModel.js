@@ -7,25 +7,25 @@ const MentorModel= new mongoose.Schema({
     required: true,
   },
   
-  email: {
+  Email: {
     type: String,
     required: true,
   },
-  phoneNumber: {
+  PhoneNumber: {
     type: Number,
     required: true,
   },
   
-  password: {
+  Password: {
     type: String,
     required: false,
   },
 
-  projectTopic: {
-    type: Number,
+  ProjectTopics: {
+    type: Array,
     required: true,
-  },
-}, { timestamps: true });
+  }
+})
 
-module.exports = mongoose.model("mentor", MentorModel);
+module.exports = mongoose.model("mentordata", MentorModel);
 

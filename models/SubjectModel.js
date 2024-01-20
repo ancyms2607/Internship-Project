@@ -3,12 +3,21 @@ const mongoose = require("mongoose");
 const Subject = new mongoose.Schema({
   Course: {
     type: String,
-    required: true,
+    required: true
   },
-  ProjectTopics: {
+  ProjectTopic: {
     type: String,
-    required: true,
+    required: true
   }
-}, { timestamps: true });
+  , 
+  Batch : {
+  type : String,
+  required: true
+  },
+  Mentor: {
+    type:String,
+    required:true
+  },
 
+})
 module.exports = mongoose.model("Subject", Subject);

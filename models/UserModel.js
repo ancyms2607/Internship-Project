@@ -6,7 +6,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    roles: [{
+    role: [{
         type: String,
         default: "User"
     }],
@@ -16,4 +16,4 @@ const userSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('users', userSchema)

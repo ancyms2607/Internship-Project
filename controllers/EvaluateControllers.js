@@ -14,18 +14,36 @@ const getAllEvaluation = async (req, res) => {
 }
 
 
-const createEvaluation = async (req, res) => {
+const createEvaluation= async (req, res) => {
+    let { status, batch, topic, link, student_name,score,comments} = req.body;
+  
     try {
-        const result = await Evaluation.create({
-            link:req.body.link,
-            score: req.body.score,
-            commemts: req.body.comments
-        });
-        res.status(200).json({'message': 'Evaluation done successfully'})
+  
+      // Create a new subject
+      let newEvaluation = await Evaluation.create({
+        status,
+        batch,
+        topic,
+        link,
+        student_name,
+        score,
+        comments
+      });
+  
+      const data = {
+        success: true,
+        message: "Evaluation Added!",
+      };
+  
+      // Save the newly created subject
+      await newEvaluation.save();
+  
+      res.json(data);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+      console.error(error);
+      res.status(500).json({ success: false, message: "Internal Server Error" });
     }
-}
+  };
 
 const updateEvaluation = async (req, res) => {
     try {
@@ -35,7 +53,7 @@ const updateEvaluation = async (req, res) => {
             return res.status(204).json({'message': `No evaluation matches ID ${req.params.id}`});
         }
         const updatedEvaluation = await Evaluation.findByIdAndUpdate(id, req.body, {new:true});
-        res.status(200).json({'message': 'EEvaluation  updated successfully'})
+        res.status(200).json({'message': 'Evaluation  updated successfully'})
         
     } catch (error) {
         res.status(500).json({ error: error.message });
