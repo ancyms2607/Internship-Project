@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 const SubmissionListSchema= mongoose.Schema({
-    
+    group:Number,
     SubmissionLink: String
 
 });
