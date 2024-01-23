@@ -4,12 +4,12 @@ const RefmatController = require('../../controllers/RefmatControllers');
 const verifyJWT = require('../../middleware/verifyJWT');
 
 router.route('/')
-    .get(verifyJWT,RefmatController.getAllReferences)
-    .post(verifyJWT,RefmatController.createNewRefmat)
+    .get(RefmatController.getAllReferences)
+    .post(RefmatController.createNewRefmat)
 
 
  router.route('/delete/:id')
-    .delete(verifyJWT, RefmatController.deleteRefmat);
+    .delete( RefmatController.deleteRefmat);
 
 
 module.exports=router;

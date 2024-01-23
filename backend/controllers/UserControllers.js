@@ -1,5 +1,5 @@
 // This File is used only during Development phase to add user data
-const User = require('../models/UserModel  ')
+const User = require('../models/UserModel')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 
@@ -18,10 +18,10 @@ const getAllUsers = asyncHandler(async (req, res) => {
 
 
 const createNewUser = asyncHandler(async (req, res) => {
-    const { username, password, roles } = req.body
+    const { username, password, role } = req.body
 
     // Confirm data
-    if (!username || !password || !Array.isArray(roles) || !roles.length) {
+    if (!username || !password ) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
@@ -35,7 +35,7 @@ const createNewUser = asyncHandler(async (req, res) => {
     // Hash password 
     const hashedPwd = await bcrypt.hash(password, 10) // salt rounds
 console.log("hashedpwd: ",hashedPwd);
-    const userObject = { username, "password": hashedPwd, roles }
+    const userObject = { username, "password": hashedPwd, role }
 
     // Create and store new user 
     const user = await User.create(userObject)

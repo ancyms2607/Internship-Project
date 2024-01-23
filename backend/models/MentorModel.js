@@ -27,5 +27,7 @@ const MentorModel= new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model("mentordata", MentorModel);
 
+const MentorData= mongoose.model("mentordata", MentorModel);
+
+module.exports=MentorData;

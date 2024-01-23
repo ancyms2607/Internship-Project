@@ -7,5 +7,5 @@ const RefmatSchema=mongoose.Schema({
 
 })
 
-const RefmatData=mongoose.model('/refmatdata',RefmatSchema);
+const RefmatData=mongoose.model('refmatdata',RefmatSchema);
 module.exports=RefmatData;

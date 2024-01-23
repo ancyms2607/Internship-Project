@@ -4,17 +4,17 @@ const jwt=require('jsonwebtoken');
 
 const handleLogin = async (req, res) => {
   try {
-    const { username, password} = req.body;
+    const { username, pwd} = req.body;
     User.findOne({username}).then((user)=>{
-      bcrypt.compare(password, user.password, (err, result)=>{
+      bcrypt.compare(pwd, user.password, (err, result)=>{
         if(err || !result) return res.status(401).send(err || "wrong password")
         const token = jwt.sign({username: user.username}, process.env.ACCESS_TOKEN_SECRET)
-        const refreshToken = jwt.sign({username: user.username}, process.env.REFRESH_TOKEN_SECRET)
+        
 
         console.log('Token:', token);
-        console.log('Refresh Token:', refreshToken);
+        
 
-        return res.status(201).send({ user, token, refreshToken})
+        return res.status(201).send({ user, token})
       })
     })
     .catch(err => {
@@ -28,5 +28,5 @@ const handleLogin = async (req, res) => {
 
 
 module.exports = {
-  handleLogin,
+  handleLogin
 };

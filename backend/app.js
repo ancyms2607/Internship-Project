@@ -9,12 +9,12 @@ const cookieParser=require('cookie-parser');
 
 
 const mongoose=require('mongoose');
-const connectDB=require('./config/dbconnection');
+const connectDB=require("./config/dbconnection");
 
 // routes
 
 const AuthRoutes=require('./routes/api/AuthRoutes');
-const RefreshRoutes = require('./routes/api/RefreshRoutes');
+const RefreshRoutes =require('./routes/api/RefreshRoutes')
 const subjectRoutes= require('./routes/api/subjectRoutes');
 const MentorRoutes=require('./routes/api/MentorRoutes');
 const ProjectTopicRoutes=require('./routes/api/ProjectTopicRoutes')
@@ -44,9 +44,7 @@ require('dotenv').config();
 
 app.use(cors({
     origin:process.env.CORS_ORIGIN,
-    methods:['GET' , 'POST' , 'PUT' , 'DELETE'],
-    credentials:true
-}))
+    }))
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({extended: false}));
@@ -64,25 +62,26 @@ app.use(morgan('dev'));
 
 
  //Routes
-app.use('/api/v1/auth', AuthRoutes)
-app.use('/api/v1/refresh', RefreshRoutes);
-app.use('/api/v1/auth/subject', subjectRoutes);
-app.use('api/v1/mentor', MentorRoutes);
-app.use('/api/v1/project', ProjectTopicRoutes)
-app.use('/api/v1/submissionlist', SubmissionListRoutes);
-app.use('/api/v1/evaluate', EvaluateRoutes);
-app.use('/api/v1/user',UserRoutes);
+app.use('/api/auth', AuthRoutes)
+app.use('/api/refresh', RefreshRoutes);
+app.use('/api/subject', subjectRoutes);
+app.use('/api/mentor', MentorRoutes);
+app.use('/api/project', ProjectTopicRoutes)
+app.use('/api/list', SubmissionListRoutes);
+app.use('/api/evaluate', EvaluateRoutes);
+app.use('/api/user',UserRoutes);
+app.use('/api/refmat', RefmatRoutes)
 
 
 
 
 // serve static files
-app.use(express.static(path.join(__dirname, './build')));
-app.get('*', function (_, res){
-    res.sendFile(path.join(__dirname, './build/index.html'), function(error){
-        res.status(500).send(error);
-    })
-})
+// app.use(express.static(path.join(__dirname, './build')));
+// app.get('*', function (_, res){
+//     res.sendFile(path.join(__dirname, './build/index.html'), function(error){
+//         res.status(500).send(error);
+//     })
+// })
 
 const PORT=process.env.PORT
 

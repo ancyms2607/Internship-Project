@@ -3,7 +3,7 @@ const router = express.Router();
 const MentorModel = require("../../models/MentorModel");
 const verifyJWT=require('../../middleware/verifyJWT')
 
-router.get("/getDetails", verifyJWT ,async (req, res) => {
+router.get("/getDetails",async (req, res) => {
   try {
     let user = await MentorModel.find(req.body);
     if (!user) {
@@ -16,18 +16,18 @@ router.get("/getDetails", verifyJWT ,async (req, res) => {
       message: "Mentor Details Found!",
       user,
     };
-    res.json(data);
+    res.json(user);
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 });
 
-router.post("/addDetails", verifyJWT, async (req, res) => {
+router.post("/addDetails",  async (req, res) => {
   let { MentorName , Email , PhoneNumber , Password , ProjectTopics} = req.body;
 
   try {
     // Create a new mentor
-    let newMentor = await Subject.create({
+    let newMentor = await MentorModel.create({
       MentorName,
       Email,
       PhoneNumber,
@@ -46,12 +46,12 @@ router.post("/addDetails", verifyJWT, async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+  
   }
 });
 
 
-router.post("/updateDetails/:id", verifyJWT,async (req, res) => {
+router.put("/updateDetails/:id", async (req, res) => {
   try {
     let updateMentor = await MentorModel.findByIdAndUpdate(req.params.id, req.body);
     if (!updateMentor) {
@@ -62,7 +62,7 @@ router.post("/updateDetails/:id", verifyJWT,async (req, res) => {
     }
     const data = {
       success: true,
-      message: "Updated Successfull!",
+      message: "Updation Successfull!",
     };
     res.json(data);
   } catch (error) {
@@ -70,7 +70,7 @@ router.post("/updateDetails/:id", verifyJWT,async (req, res) => {
   }
 });
 
-router.delete("/deleteDetails/:id", verifyJWT,async (req, res) => {
+router.delete("/deleteDetails/:id",async (req, res) => {
   try {
     let deleteMentor = await MentorModel.findByIdAndDelete(req.params.id);
     if (!deleteMentor) {

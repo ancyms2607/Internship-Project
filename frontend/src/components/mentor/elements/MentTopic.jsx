@@ -13,12 +13,14 @@ import {
   import MentSidebar from "./MentSidebar";
 import { DatasetLinkedTwoTone } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
   
   
   
   
    
   const  MentTopic=()=>{
+    const [topics,setTopics] = useState([])
     // const topicData=[{
     //     topic:"ICTAK Internship Portal-Admin and Mentor View",
     //     batch:"KKEMFSDAUG2023",
@@ -30,29 +32,41 @@ import { Link } from "react-router-dom";
     //     mantor:"Ashin Amanulla"
     // }
 
+    useEffect(()=>{
+      axios.get('http://localhost:3001/api/project/').then((res)=>{
+        console.log(res.data);
+        setTopics(res.data);
+      })
+    },[])
+
     return (
       <Box m="20px" display="flex">
       {/* SIDEBAR */}
       <MentSidebar/>
       <div style={{color:colors.green}}  >
-       <Typography variant="h1"  style={{color:'darkblue'}}>Project Topics</Typography>
+       <Typography variant="h1"  style={{color:'darkblue'  , marginTop: "5%" , textAlign: "center"}}>Project Topics</Typography>
        <br/>
       <Grid container spacing={2}>
-        
-        <Grid item  xs={12} sm={6} md={4}>
-          <Card sx={{ maxWidth: "500px" }} style={{color:"white", marginLeft: "5%"}} >
+           {topics.map((val,i)=>(
+            
+        <Grid item   sm={12} md={6}>
+          <Card style={{ width: "550px", color: "white", marginLeft: "5%",  marginTop: "70px", backgroundColor: "darkblue" }} >
           
             <CardContent>
                 
               <Typography gutterBottom variant="2" component="div">
-              topic:
+              {val.project_topic}
               </Typography>
               <br/>
               <Typography variant="body2" >
-              group:
+              {val.group}
               </Typography>
               <br/>
-              <Button variant="outlined" style={{backgroundColor:"white", color:"dark", marginLeft:'10px'}}><Link to={'/table'}>View</Link></Button>
+              <Typography gutterBottom variant="2" component="div">
+              {val.team_members}
+              </Typography>
+              <br/>
+              <Button style={{backgroundColor: "white"}}><Link to={'/table'} style={{ color: "grey " , textDecoration: "none", fontSize : "small"}}>View</Link></Button>
              
               
                       
@@ -61,6 +75,7 @@ import { Link } from "react-router-dom";
             
           </Card>
         </Grid>
+        ))}
     
       </Grid>
       </div>

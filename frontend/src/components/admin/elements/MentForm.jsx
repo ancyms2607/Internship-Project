@@ -8,13 +8,39 @@ import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import App from './../../../../src/App.css';
 
-const MentForm = () => {
+const MentForm = (props) => {
 
      const [form,setForm]=useState({
-        topic:'',
-        batch:'',
-        mentor:'' 
+        MentorName:'',
+        Email:'',
+        PhoneNumber:'',
+        Password:'',
+        ProjectTopics:''
      }) 
+     function submitHandler(){
+          //  axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
+          //   alert(res.data.message)
+          //  })
+          if(props.method==="put"){
+            axios.put("http://localhost:3001/api/mentor/updateDetails/"+props.data._id,form)
+            .then((res)=>{
+             
+              if (res.data.message==="No Mentor Found") {
+               alert(res.data.message)
+                window.location.reload(false);
+          
+                
+              } else {
+                alert("Updation Successful")
+              }
+            })}
+            else{
+            axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
+              alert(res.data.message);
+           
+            })}
+         
+     }
   return (
 
     <Box m="20px" display="flex">
@@ -26,44 +52,44 @@ const MentForm = () => {
      <br/>
      
     
-      <TextField fullWidth variant="outlined"  type="text" label="Mentor name"
+      <TextField fullWidth variant="outlined"  multiline rows={2} type="text" label="Mentor Name"
       onChange={(e)=>{
-       setForm({...form,topic:e.target.value})
+       setForm({...form,MentorName:e.target.value})
      }}/>
      <br/>
      <br/>
   
-      <TextField fullWidth variant="outlined"  type="text" label="Email"
+      <TextField fullWidth variant="outlined" multiline rows={2}  type="text" label="Email"
      onChange={(e)=>{
-      setForm({...form,topic:e.target.value})
+      setForm({...form,Email:e.target.value})
     }}/>
     <br/>
     <br/>
     
-      <TextField fullWidth variant="outlined"  type="number" label="Phone number"
+      <TextField fullWidth variant="outlined"  multiline rows={2} type="number" label="Phone Number"
        onChange={(e)=>{
-        setForm({...form,topic:e.target.value})
+        setForm({...form,PhoneNumber:e.target.value})
       }}/>
       <br/>
       <br/>
       <TextField
-        variant="outlined" fullWidth  type="password" label="Password"
+        variant="outlined" multiline rows={2} fullWidth  type='password' label="Password"
         onChange={(e)=>{
-          setForm({...form,batch:e.target.value})
+          setForm({...form,Password:e.target.value})
         }}
       />
       <br/>
       <br/>
       
-      <TextField fullWidth variant="outlined" value={form.mentor} type='text' label="Project topic"
+      <TextField fullWidth variant="outlined" multiline rows={2} type='text' label="Project Topics"
        onChange={(e)=>{
-        setForm({...form,mentor:e.target.value})
+        setForm({...form,ProjectTopics:e.target.value})
       }} />
       <br/>
       <br/>
       <br/>
       
-      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  >
+      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}} onClick={submitHandler} >
             Submit
           </Button>
     </div>

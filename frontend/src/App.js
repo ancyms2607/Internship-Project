@@ -20,6 +20,8 @@ import Evaluations from './components/mentor/elements/Evaluations';
 import Evaluate from './components/mentor/elements/Evaluate';
 import Refmats from './components/mentor/elements/Refmats';
 import AddRefmat from './components/mentor/elements/AddRefmat';
+import PrivateRoute from './components/PrivateRoute';
+
 
 
 function App() {
@@ -37,14 +39,20 @@ function App() {
       <Routes>
      <Route path='/' element={<Home/>}/>
      <Route path='/login' element={<Login/>}/>
-     <Route path='/dashadmin' element={<Main child={<Dashboard/>}/>}/>
+
+
+     <Route path='/dashadmin' element={<PrivateRoute Component={Dashboard}/>}/>
      <Route path='/topics' element={<Main child={<Project/>}/>}/>
      <Route path='/addtopic'element={<Main child={<AddTopic/>}/>}/>
      <Route path='/mentors' element={<Main child={<Mentors/>}/>} />
      <Route path='/mentform' element={<Main child={<MentForm/>}/>}/>
+
+
      <Route path='/dashment' element={<Common child={<MentDashboard/>}/>}/>
      <Route path='/menttopics' element={<Common child={<MentTopic/>}/>}/>
+
      <Route path='/table' element={<ListTable/>}/>
+     
      <Route path='/mentsub'element={<Common child={<Submissions/>}/>}/>
      <Route path='/evals'element={<Common child={<Evaluations/>}/>}/>
      <Route path='/evaluate' element={<Common child={<Evaluate/>}/>}/>

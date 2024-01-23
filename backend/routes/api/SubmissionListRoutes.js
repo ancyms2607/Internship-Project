@@ -3,18 +3,18 @@ const router = express.Router();
 const SubmissionListController = require('../../controllers/SublmissionListController');
 const verifyJWT = require('../../middleware/verifyJWT');
 
-router.route('/getSubmissions')
-    .get(verifyJWT,SubmissionListController.getAllSubmissions);
+router.route('/')
+    .get(SubmissionListController.getAllSubmissions);
 
 
  router.route('/getSubmissions/:id')
-    .get(verifyJWT, SubmissionListController.getOneSubmission);
+    .get( SubmissionListController.getOneSubmission);
 
 
  router.route('/deleteSubmission/:id')
-   .delete(verifyJWT,SubmissionListController.deleteSubmission)
+   .delete(SubmissionListController.deleteSubmission)
 
  router.route('/:topic/:batch')
-    .get(verifyJWT,SubmissionListController.filterSubmissions);
+    .get(SubmissionListController.filterSubmissions);
 
 module.exports=router;

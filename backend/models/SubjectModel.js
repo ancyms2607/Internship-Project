@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Subject = new mongoose.Schema({
+const SubjectSchema = new mongoose.Schema({
   Course: {
     type: String,
     required: true
@@ -20,4 +20,5 @@ const Subject = new mongoose.Schema({
   },
 
 })
-module.exports = mongoose.model("Subject", Subject);
+const SubjectData = mongoose.model("Subject", SubjectSchema);
+module.exports=SubjectData

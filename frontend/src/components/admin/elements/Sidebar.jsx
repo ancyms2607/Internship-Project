@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {  Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Link , useNavigate} from "react-router-dom";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -13,12 +13,13 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import { ProSidebar } from 'react-pro-sidebar';
+ import DeleteIcon from '@mui/icons-material/Delete';
  import Topbar from "./Topbar";
 // import Sidebar from 'react-pro-sidebar'
 
 
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected , onClick}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -41,6 +42,12 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const navigate=useNavigate()
+
+  const handleLogout = ()=>{
+    sessionStorage.removeItem('Token')
+    navigate('/login')
+  }
 
   return (
     <Box
@@ -166,13 +173,17 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Item
+            {/* <Item
               title="Logout"
-              to="/login"
+            
               icon={<LogoutIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+          > 
+          </Item> */}
+
+            <Button style={{textDecoration :"none", color  : "white" , paddingLeft: "10%"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
+            
           </Box>
         </Menu>
       </ProSidebar>

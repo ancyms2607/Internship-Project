@@ -8,7 +8,7 @@ const userSchema = new Schema({
     },
     role: [{
         type: String,
-        default: "User"
+        default: "Admin"
     }],
     password: {
         type: String,
@@ -16,4 +16,4 @@ const userSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('users', userSchema)
+module.exports = mongoose.model('user', userSchema)

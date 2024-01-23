@@ -4,12 +4,12 @@ const EvaluateController = require('../../controllers/EvaluateControllers');
 const verifyJWT = require('../../middleware/verifyJWT');
 
 router.route('/')
-    .get(verifyJWT,EvaluateController.getAllEvaluation)
-    .post(verifyJWT,EvaluateController.createEvaluation)
+    .get(EvaluateController.getAllEvaluation)
+    .post(EvaluateController.createEvaluation)
 
 
  router.route('/update/:id')
-    .put(verifyJWT, EvaluateController.updateEvaluation);
+    .put( EvaluateController.updateEvaluation);
 
 
 module.exports=router;

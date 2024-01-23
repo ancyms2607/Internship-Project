@@ -1,36 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const Subject = require("../../models/SubjectModel");
+const SubjectData = require("../../models/SubjectModel");
 const verifyJWT=require('../../middleware/verifyJWT')
 
-router.get("/getSubject", verifyJWT,async (req, res) => {
+// CRUD operations
+
+router.get("/getSubject", async (req, res) => {
   try {
-    let subject = await Subject.find();
-    if (!subject) {
-      return res
-        .status(400)
-        .json({ success: false, message: "No Subject Available" });
-    }
-    const data = {
-      success: true,
-      message: "All Subject Loaded!",
-      subject,
-    };
-    res.json(data);
+
+    let subjects = await SubjectData.find();
+    console.log(subjects)
+    if (subjects.length===0) {
+       res.status(400).json({ success: false, message: "No Topic Available" });
+    }else{
+    res.status(200).json(subjects)};
+    
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+  
   }
 });
 
 
-router.post("/addSubject", verifyJWT, async (req, res) => {
+
+router.post("/addSubject",  async (req, res) => {
   let { Course, ProjectTopic, Batch, Mentor } = req.body;
 
   try {
 
-    // Create a new subject
-    let newSubject = await Subject.create({
+    // Create a new topic
+    let newSubject = await SubjectData.create({
       Course,
       ProjectTopic,
       Batch,
@@ -39,10 +38,10 @@ router.post("/addSubject", verifyJWT, async (req, res) => {
 
     const data = {
       success: true,
-      message: "Subject Added!",
+      message: "Topic Added!",
     };
 
-    // Save the newly created subject
+    // Save the newly created topic
     await newSubject.save();
 
     res.json(data);
@@ -53,33 +52,37 @@ router.post("/addSubject", verifyJWT, async (req, res) => {
 });
 
 
-router.put("/editSubject/:id", verifyJWT ,async(req,res)=>{
+router.put("/editSubject/:id", async (req, res) => {
   try {
-    const id=req.params;
-    const subject = await Subject.findById(id);
-    if(!subject){
-        return res.status(204).json({'message': `No subject matches ID ${req.params.id}`});
+    const id = req.params.id;
+    const subject = await SubjectData.findById(id);
+
+    if (!subject) {
+      return res.status(204).json( `No topic matches ID ${req.params.id}` );
     }
-    const updateSubject = await Subject.findByIdAndUpdate(id, req.body, {new:true});
-    res.status(200).json({'message': 'Subject  updated successfully'})
-    
-} catch (error) {
+
+    const updateSubject = await SubjectData.findByIdAndUpdate(id, req.body,{new:true});
+    res.status(200).json({ 'message': 'Topic updated successfully' });
+    console.log(updateSubject);
+
+  } catch (error) {
     res.status(500).json({ error: error.message });
-}
-}
-)
+  }
+});
+
+
 
 router.delete("/deleteSubject/:id", async (req, res) => {
   try {
-    let subject = await Subject.findByIdAndDelete(req.params.id);
+    let subject = await SubjectData.findByIdAndDelete(req.params.id);
     if (!subject) {
       return res
         .status(400)
-        .json({ success: false, message: "No Subject Exists!" });
+        .json({ success: false, message: "No Topic Exists!" });
     }
     const data = {
       success: true,
-      message: "Subject Deleted!",
+      message: "Topic Deleted!",
     };
     res.json(data);
   } catch (error) {
