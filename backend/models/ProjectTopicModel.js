@@ -14,5 +14,5 @@ const GroupSchema = new Schema({
     }
 });
 
-const ProjectTopicData=mongoose.model('projectTopic', ProjectTopicSchema)
+const ProjectTopicData=mongoose.model('projecttopic', ProjectTopicSchema)
 module.exports = ProjectTopicData;
