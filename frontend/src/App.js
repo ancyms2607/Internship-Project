@@ -30,7 +30,7 @@ function App() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <CssBaseline/>
+        {/* <CssBaseline/> */}
     <div className="app">
       
       <main className='content'>

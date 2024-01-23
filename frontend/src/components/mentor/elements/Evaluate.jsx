@@ -7,13 +7,35 @@ import {tokens} from "../../../theme"
 import App from './../../../../src/App.css';
 import MentSidebar from './MentSidebar';
 
-const Evaluate = () => {
+const Evaluate = (props) => {
 
      const [form,setForm]=useState({
-        topic:'',
-        batch:'',
-        mentor:'' 
+        topic:props.data.topic,
+        batch:props.data.batch,
+        mentor:props.data.mentor
      }) 
+
+     function submitform(){
+      if(props.method==="put"){
+        axios.put("http://localhost:3000/blogs/edit/"+props.data._id,form)
+        .then((response)=>{
+         
+          if (response.data==="Updated successfully") {
+           alert(response.data)
+            window.location.reload(false);
+      
+            
+          } else {
+            alert("not updated")
+          }
+        })}
+        else{
+        axios.post('http://localhost:4000/blogs/add',form).then((res)=>{
+          alert(res.data);
+       
+        })}
+     
+    }
   return (
 
     <Box m="20px" display="flex">
@@ -78,8 +100,9 @@ const Evaluate = () => {
       <br/>
       <br/>
       
-      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  >
-            Done
+     
+          <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}onClick={submitform} >
+            Submit
           </Button>
     </div>
     </Box>

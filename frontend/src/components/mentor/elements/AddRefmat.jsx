@@ -7,40 +7,52 @@ import {tokens} from "../../../theme"
 import App from "../../../../src/App.css"
 import MentSidebar from './MentSidebar';
 
-const AddRefmat = () => {
-    const [form,setForm]=useState({
-        topic:'',
-        batch:'',
-        mentor:''
-    })
-  return (
-    
 
-  // const [upform,setUpForm]=useState({
-  //   title:props.data.title,
-  //   description:props.data.description,
-  //   date_update:Date.now(),
-  //   image:props.data.image,
-  // });
+//useEffect
+
+const AddRefmat = (props) => {
+    const [form,setForm]=useState({
+        topic:''
+       
+    });
+
+    function submitform(){
+      if(props.method==="post"){
+        axios.post("http://localhost:3001/api/refmat/addref"+props.data._id,form)
+        .then((res)=>{
+          if(res.data.message==="Material Upload Successfully"){
+            alert(res.data.message)
+            window.location.reload(false);
+          }else{
+            alert("Not upload")
+            }
+
+          })}
+          
+        }
+          
+return(
   <Box m="20px" display="flex">
-  {/* SIDEBAR */}
+ 
   <MentSidebar />
 
-    <div style={{ margin: "7% " }} className='App'>
+    <div style={{marginLeft:"10%"}} className='App'>
      <Typography variant='h1' style={{color:'darkblue'}} >Add Reference Materials</Typography>
 
      <br/>
      <br/>
-      <TextField fullWidth variant="outlined" value={form.topic} f label="Reference Link"
+     <label>Reference Material</label>
+      <TextField fullWidth variant="outlined" value={form.topic}  
        onChange={(e)=>{
         setForm({...form,topic:e.target.value})
       }}/>
+      
       <br/>
       <br/>
       <br/>
     
       
-      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  >
+      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  onClick={submitform}>
             Submit
           </Button>
     </div>
@@ -48,4 +60,4 @@ const AddRefmat = () => {
   );
     }
 
-export default AddRefmat
+export default  AddRefmat

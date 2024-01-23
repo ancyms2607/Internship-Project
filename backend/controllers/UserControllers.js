@@ -1,5 +1,9 @@
 // This File is used only during Development phase to add user data
+
 const User = require('../models/UserModel')
+
+const User = require('../models/UserModel')  
+
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 

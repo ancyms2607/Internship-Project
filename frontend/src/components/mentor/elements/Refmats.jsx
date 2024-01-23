@@ -16,7 +16,7 @@ import {
 import MentSidebar from "./MentSidebar";
   
   const Refmats = () => {
-  
+   
   
    
    return(
@@ -25,7 +25,7 @@ import MentSidebar from "./MentSidebar";
         <MentSidebar />
       
        <div >
-        <Typography variant="h1" style={{color:"darkblue", margin: "1%"}} >
+        <Typography variant="h2" style={{color:"darkblue", margin: "20px"}} >
                     Reference Materials for better practice
                   </Typography>
         <br/>
@@ -36,11 +36,12 @@ import MentSidebar from "./MentSidebar";
             
                 <CardContent>
                   
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h3" component="div">
                     Reference:
                   </Typography>
                   <br/>
-                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}}>Delete</Button>
+                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginRight:"50px"}}>
+                    Delete</Button>
                  
                   
                           

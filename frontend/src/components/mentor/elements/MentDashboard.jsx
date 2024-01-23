@@ -18,8 +18,7 @@ const MentDashboard = () => {
     <Box m="20px" display="flex">
       {/* SIDEBAR */}
       <MentSidebar/>
-      <Topbar/>
-      {/* CONTENT */}
+      
       <Box flex="1" p="20px">
         {/* HEADER */}
         <Header  title="DASHBOARD" subtitle="Welcome to your dashboard" />
@@ -49,6 +48,7 @@ const MentDashboard = () => {
             increase="+21%"
             icon={<ReceiptLongOutlined sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
+          
           <StatBox
             item
             xs={12}

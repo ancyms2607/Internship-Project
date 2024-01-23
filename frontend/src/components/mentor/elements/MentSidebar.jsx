@@ -170,7 +170,7 @@ const MentSidebar = () => {
            >References</Typography>
 
             <Item
-              title="Reference Materials"
+              title="Ref Materials"
               to="/refmaterials"
               icon={<ListItemIcon/>}
               selected={selected}
