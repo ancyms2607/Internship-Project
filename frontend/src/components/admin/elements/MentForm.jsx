@@ -73,7 +73,7 @@ const MentForm = (props) => {
       <br/>
       <br/>
       <TextField
-        variant="outlined" multiline rows={2} fullWidth  type='password' label="Password"
+        variant="outlined" multiline rows={2} fullWidth  type="password" label="Password"
         onChange={(e)=>{
           setForm({...form,Password:e.target.value})
         }}

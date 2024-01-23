@@ -1,5 +1,5 @@
 const ProjectTopic =require('../models/ProjectTopicModel')
-const SubjectData=require('../models/SubjectModel')
+
 
 // CRUD Operation
 

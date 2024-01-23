@@ -56,10 +56,10 @@
              sessionStorage.setItem('Token',accessToken)
              const role = response?.data?.user?.role;
              if (role[0] === "Admin") {
-                // If the role is "User", navigate to StudentDashboard
+                // If the role is "Admin", navigate to AdminDashboard
                 navigate('/dashadmin');
               } else if (role[0] === "Mentor") {
-                // If the role is "Admin", navigate to another route if needed
+                // If the role is "Mentor", navigate to MentorDashboard
                 navigate('/dashment');
               } else {
                 // Handle other roles or navigate to a default route

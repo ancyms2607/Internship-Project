@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const GroupSchema = new Schema({
+const ProjectTopicSchema = new Schema({
 
     project_topic:{
         type:String

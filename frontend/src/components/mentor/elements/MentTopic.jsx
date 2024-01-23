@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
   
  
    
-  const  MentTopic=()=>{
+  const  MentTopic=(props)=>{
 
     const [topics,setTopics] = useState([])
     
@@ -28,26 +28,26 @@ import { useEffect, useState } from "react";
             group:''
         })
     
-        function submitForm(){
+        // function submitForm(){
           
-          if(props.method==="put"){
-            axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
-            .then((res)=>{
+        //   if(props.method==="put"){
+        //     axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
+        //     .then((res)=>{
              
-              if (res.data.message==="Topic updated successfully") {
-               alert(res.data.message)
-                window.location.reload(false);
+        //       if (res.data.message==="Topic updated successfully") {
+        //        alert(res.data.message)
+        //         window.location.reload(false);
           
                 
-              } else {
-                alert("not updated")
-              }
-            })}
-            else{
-            axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
-              alert(res.data.message);
+        //       } else {
+        //         alert("not updated")
+        //       }
+        //     })}
+        //     else{
+        //     axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
+        //       alert(res.data.message);
            
-            })}
+        //     })}
          
       
 
@@ -109,4 +109,5 @@ import { useEffect, useState } from "react";
     );
            
   };
+
   export default MentTopic;
