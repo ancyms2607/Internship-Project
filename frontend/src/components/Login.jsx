@@ -75,11 +75,11 @@
 
          } catch (err) {
              if (!err?.response) {
-                 setErrMsg('No Server Response');
-             } else if (err.response?.status === 409) {
-                 setErrMsg('Username Taken');
-             } else {
-                 setErrMsg('Login Failed')
+                 alert('No Server Response');
+             } 
+            
+              else {
+                alert('Login Failed')
              }
              errRef.current.focus();
          }
@@ -88,7 +88,7 @@
      return (
              <>
              
-                  <section className="log">
+                  <section style={{marginLeft: "35%" , marginTop: "10%"}}>
                      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                      <h1 style={{color: "darkblue"}}>ICTAK Internship Portal-Login Form</h1>
                      

@@ -136,18 +136,16 @@ const Sidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           >Project</Typography>
+           ><ReceiptOutlinedIcon/> Project</Typography>
             <Item
               title="Project Topics"
               to="/topics"
-              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
            <Item
            title="Add Topic"
            to="/addtopic"
-           icon={<ReceiptOutlinedIcon/>}
            selected={selected}
            setSelected={setSelected}
            />
@@ -155,12 +153,11 @@ const Sidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           >Mentor</Typography>
+           ><PeopleOutlinedIcon/> Mentor</Typography>
             
             <Item
               title="Mentors"
               to="/mentors"
-              icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />  
@@ -168,7 +165,6 @@ const Sidebar = () => {
             <Item
               title="Mentor Form"
               to="/mentform"
-              icon={<PersonOutlinedIcon/>}
               selected={selected}
               setSelected={setSelected}
             />

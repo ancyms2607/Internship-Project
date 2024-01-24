@@ -9,16 +9,23 @@ import topicadd from "../../../../src/App.css"
 
 const AddTopic = (props) => {
     const [form,setForm]=useState({
-        Course:'',
+         Course:props.data.Course,
         ProjectTopic:'',
         Batch:'',
         Mentor:''
+    })
+
+    useEffect(()=>{
+      if(!props){
+        setForm('')
+      }
     })
 
     function submitForm(){
       // axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
       //   alert(res.data.message);
       // })
+
       if(props.method==="put"){
         axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
         .then((res)=>{
@@ -62,14 +69,14 @@ const AddTopic = (props) => {
      <TextField fullWidth style={{paddingBottomBottom: "45px"}} multiline rows={2}  variant="outlined"   label="Course"
        onChange={(e)=>{
         setForm({...form,Course:e.target.value})
-      }}/>
+      }}value={form.Course}></TextField>
       <br/>
       <br/>
       <br/>
       <TextField fullWidth style={{paddingBottomBottom: "45px"}} multiline rows={2} variant="outlined"   label="Project Topic"
        onChange={(e)=>{
         setForm({...form,ProjectTopic:e.target.value})
-      }}/>
+      }}value={form.ProjectTopic}/>
       <br/>
       <br/>
       <br/>
@@ -77,7 +84,7 @@ const AddTopic = (props) => {
         variant="outlined" fullWidth   multiline rows={2} label="Batch"
         onChange={(e)=>{
           setForm({...form,Batch:e.target.value})
-        }}
+        }}value={form.Batch}
       />
       <br/>
       <br/>
@@ -85,7 +92,7 @@ const AddTopic = (props) => {
       <TextField fullWidth variant="outlined"  multiline rows={2}  label="Mentor Name"
        onChange={(e)=>{
         setForm({...form,Mentor:e.target.value})
-      }} />
+      }}value={form.Mentor}/>
       <br/>
       <br/>
       <br/>
