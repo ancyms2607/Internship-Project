@@ -25,14 +25,14 @@ import MentSidebar from "./MentSidebar";
         <MentSidebar/>
       
        <div >
-        <Typography variant="h1" style={{color:"darkblue", margin: "1%"}} >
+        <Typography variant="h1" style={{color:'white', textAlign: "center", marginTop: "3%"}}>
                     Submissions of KKEM AUGUST 2023 BATCH
                   </Typography>
         <br/>
         <Grid container spacing={2}>
     
-            <Grid item  xs={12} sm={6} md={4}>
-            <Card sx={{ maxWidth: 350 }} style={{color:"white", marginLeft: "5%"}} >
+            <Grid item   sm={12} md={6}>
+            <Card sx={{ maxWidth: 350 }} style={{ width: "1100px", color: "white", margin: "5%", backgroundColor: "darkblue" }} >
             
                 <CardContent>
                   

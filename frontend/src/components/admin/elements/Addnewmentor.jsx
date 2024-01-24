@@ -1,56 +1,45 @@
 import React from 'react'
 import { Button, TextField, Typography , Box} from "@mui/material";
 import  { useEffect, useState } from "react";
-import {redirect} from "react-router-dom";
+import {redirect , useNavigate} from "react-router-dom";
 import axios from 'axios';
 import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import App from './../../../../src/App.css';
 
-const MentForm = (props) => {
 
-     const [form,setForm]=useState({
-        MentorName:props.data.MentorName,
-        Email:props.data.Email,
-        PhoneNumber:props.data.PhoneNumber,
-        Password:props.data.Password,
-        ProjectTopics:props.data.ProjectTopics
-     }) 
+const Addnewmentor = (props) => {
+    const [form,setForm]=useState({
+        MentorName:'',
+        Email:'',
+        PhoneNumber:'',
+        Password:'',
+        ProjectTopics:''
+     })
+
+     const navigate=useNavigate()
+
      function submitHandler(){
-          //  axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
-          //   alert(res.data.message)
-          //  })
-          if(props.method==="put"){
-            axios.put("http://localhost:3001/api/mentor/updateDetails/"+props.data._id,form)
-            .then((res)=>{
-             
-              if (res.data.message==="No Mentor Found") {
-               alert(res.data.message)
-                window.location.reload(false);
+           axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
+            alert(res.data.message)
+            navigate('/mentors');
+           })
+         
           
-                
-              } else {
-                alert("Updation Successful")
-              }
-            })}
-            else{
-            axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
-              alert(res.data.message);
-           
-            })}
          
      }
   return (
-
+    <>
+    
     <Box m="20px" display="flex">
     {/* SIDEBAR */}
     <Sidebar />
-    <div  style={{ margin: " 5%  25% "}} className='App'>
-     <Typography variant='h2' style={{color:'white'}} >Update Mentor</Typography>
+    <div  style={{ margin: " 3%  25% "}} className='App'>
+     <Typography variant='h2' style={{color:'white', marginBottom: "2%"}} >Add New Mentor</Typography>
 
      <br/>
-     
+     <br/>
     
       <TextField fullWidth variant="outlined"  multiline rows={2} type="text" label="Mentor Name"
       onChange={(e)=>{
@@ -84,7 +73,7 @@ const MentForm = (props) => {
       <TextField fullWidth variant="outlined" multiline rows={2} type='text' label="Project Topics" 
        onChange={(e)=>{
         setForm({...form,ProjectTopics:e.target.value})
-      }} value={form.ProjectTopics} />
+      }} value={form.ProjectTopics}/>
       <br/>
       <br/>
       <br/>
@@ -94,8 +83,10 @@ const MentForm = (props) => {
           </Button>
     </div>
     </Box>
-  );
 
-    }
 
-export default MentForm
+    </>
+  )
+}
+
+export default Addnewmentor

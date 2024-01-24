@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
         <img className='homebg' src='https://retail.ictkerala.org/pluginfile.php/9699/coursecat/description/1.%20Academic%20Trainings.png'/>
-        <Button style={{backgroundColor:'lightblue', marginLeft: "45%", margintop:'5%'}}><Link to={'/login'}>LOGIN</Link></Button>
+        <Button style={{ marginLeft: "50%", margintop:'5%'}}><Link style={{backgroundColor: "white" , color : "darkblue" , textDecoration: "none"}} to={'/login'}>LOGIN</Link></Button>
     </div>
   )
 }

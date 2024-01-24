@@ -145,7 +145,7 @@ const Sidebar = () => {
             />
            <Item
            title="Add Topic"
-           to="/addtopic"
+           to="/addnewtopic"
            selected={selected}
            setSelected={setSelected}
            />
@@ -164,7 +164,7 @@ const Sidebar = () => {
 
             <Item
               title="Mentor Form"
-              to="/mentform"
+              to="/addnewmentor"
               selected={selected}
               setSelected={setSelected}
             />
@@ -178,7 +178,7 @@ const Sidebar = () => {
           > 
           </Item> */}
 
-            <Button style={{textDecoration :"none", color  : "white" , paddingLeft: "10%"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
+            <Button style={{textDecoration :"none", color  : "grey" , paddingLeft: "10%"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
             
           </Box>
         </Menu>

@@ -16,8 +16,14 @@ import {
 import MentSidebar from "./MentSidebar";
   
   const Evaluations = () => {
+  const [form,setForm]=useState([]);
   
-  
+    useEffect(()=>{
+      axios.get('http://localhost:3001/api/evaluate/').then((res)=>{
+        console.log(res.data);
+        setForm(res.data)
+      })
+    },[])
    
    return(
     <Box m="20px" display="flex">
@@ -30,38 +36,45 @@ import MentSidebar from "./MentSidebar";
                   </Typography>
         <br/>
         <Grid container spacing={2}>
-    
+             {form.map((val,i)=>(
             <Grid item  xs={12} sm={6} md={4}>
-            <Card sx={{ maxWidth: 350 }} style={{color:"white", marginLeft: "5%"}} >
+            <Card style={{width: "950px" , marginLeft: "5%"}}>
+                
+              
             
                 <CardContent>
+{/*                 
+                <Typography gutterBottom variant="h5" component="div" paddingLeft={'1%'}>
+
+                </Typography> */}
+           
                   
                   <Typography gutterBottom variant="h5" component="div">
-                    Status:
+                    {val.status}
                   </Typography>
                   <br/>
                     <Typography variant="body2" type="text">
-                      Batch:
+                      {val.batch}
                     </Typography>
                     <br/>
                     <Typography variant="body2" type="number">
-                      Topic:
+                      {val.topic}
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="password">
-                      Student Name:
+                      {val.student}
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="text" >
-                    Link:
+                    {val.link}
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="text" >
-                     Score:
+                     {val.score}
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="text" >
-                    Comments:
+                    {val.comments}
                   </Typography>
                   <br/>
                   
@@ -72,6 +85,7 @@ import MentSidebar from "./MentSidebar";
                 </CardContent>
                 </Card>
                 </Grid>
+                ))}
               
           
         </Grid>

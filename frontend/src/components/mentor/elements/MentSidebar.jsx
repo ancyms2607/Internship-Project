@@ -9,8 +9,6 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
 import { ProSidebar } from 'react-pro-sidebar';
-import { ListAltOutlined } from "@mui/icons-material";
-import { GradeOutlined } from "@mui/icons-material";
 
 
 
@@ -127,31 +125,28 @@ const MentSidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           >Project</Typography>
+           ><ListItemIcon/> Project</Typography>
             <Item
               title="Project Topics"
               to="/menttopics"
-              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
              <Item
               title="Submissions"
               to="/mentsub"
-              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Typography
+            {/* <Typography
             variant="h6"
             color={colors.grey[300]}
             sx={{m: "15px 0 5px 20px"}}
-            >Evaluation</Typography>
-        
+            > Evaluation</Typography>
+         */}
             <Item
               title="Evaluations"
               to="/evals"
-              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -159,7 +154,6 @@ const MentSidebar = () => {
             <Item
               title="Evaluate"
               to="/evaluate"
-              icon={<GradeOutlined/>}
               selected={selected}
               setSelected={setSelected}
             />  
@@ -179,7 +173,7 @@ const MentSidebar = () => {
              <Item
               title="Add Reference"
               to="/addrefers"
-              icon={<ListItemIcon />}
+              
               selected={selected}
               setSelected={setSelected}
             />

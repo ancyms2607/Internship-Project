@@ -20,12 +20,16 @@ const Dashboard = () => {
 
       {/* CONTENT */}
       <Box flex="1" p="20px">
+        
         {/* HEADER */}
+        
         <Header  title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
+        
         {/* GRID & CHARTS */}
+        
         <Grid container spacing={3}>
           {/* ROW 1 */}
+          
           <StatBox
             item
             xs={12}

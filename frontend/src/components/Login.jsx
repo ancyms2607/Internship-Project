@@ -88,9 +88,9 @@
      return (
              <>
              
-                  <section style={{marginLeft: "35%" , marginTop: "10%"}}>
+                  <section style={{marginTop: "10%" , marginLeft: "35%"}}>
                      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                     <h1 style={{color: "darkblue"}}>ICTAK Internship Portal-Login Form</h1>
+                     <h1 style={{color: "white"}}>ICTAK Internship Portal-Login Form</h1>
                      
                          <label htmlFor="username">
                              Username:
@@ -138,7 +138,7 @@
 
                 
                 <br/>
-                         <button style={{fontSize: "medium" , padding: "10px"}} onClick={handleSubmit}>LOGIN</button>
+                         <button style={{fontSize: "medium" , padding: "10px" }} onClick={handleSubmit}>LOGIN</button>
                      
                  
 </section>

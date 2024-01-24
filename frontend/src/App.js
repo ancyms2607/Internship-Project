@@ -21,6 +21,8 @@ import Evaluate from './components/mentor/elements/Evaluate';
 import Refmats from './components/mentor/elements/Refmats';
 import AddRefmat from './components/mentor/elements/AddRefmat';
 import PrivateRoute from './components/PrivateRoute';
+import Addnewtopic from './components/admin/elements/Addnewtopic';
+import Addnewmentor from './components/admin/elements/Addnewmentor';
 
 
 
@@ -44,8 +46,10 @@ function App() {
      <Route path='/dashadmin' element={<PrivateRoute Component={Dashboard}/>}/>
      <Route path='/topics' element={<Main child={<Project/>}/>}/>
      <Route path='/addtopic'element={<Main child={<AddTopic/>}/>}/>
+     <Route path='/addnewtopic' element={<Main child={<Addnewtopic/>}/>}/>
      <Route path='/mentors' element={<Main child={<Mentors/>}/>} />
-     <Route path='/mentform' element={<Main child={<MentForm/>}/>}/>
+     <Route path='/updatementor' element={<Main child={<MentForm/>}/>}/>
+     <Route path='/addnewmentor' element={<Main child={<Addnewmentor/>}/>}/>
 
 
      <Route path='/dashment' element={<Common child={<MentDashboard/>}/>}/>

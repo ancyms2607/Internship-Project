@@ -47,7 +47,7 @@ let finalJSX=(
       <Sidebar />
     
      <div >
-      <Typography variant="h1"  style={{color:'darkblue', textAlign: "center", marginTop: "5%"}} >Mentors of ICT Academy Kerala</Typography>
+      <Typography variant="h1"  style={{color:'white', textAlign: "center", marginTop: "3%"}} >Mentors of ICT Academy Kerala</Typography>
       <br/>
       <Grid container spacing={2}>
              {mentor.map((val,i)=>(
