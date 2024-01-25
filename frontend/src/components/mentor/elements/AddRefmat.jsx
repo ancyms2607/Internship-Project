@@ -11,25 +11,19 @@ import MentSidebar from './MentSidebar';
 //useEffect
 
 const AddRefmat = (props) => {
-    const [form,setForm]=useState({
-        topic:''
-       
-    });
+    const [form,setForm]=useState([]);
 
     function submitform(){
-      if(props.method==="post"){
-        axios.post("http://localhost:3001/api/refmat/addref"+props.data._id,form)
+        
+        axios.post("http://localhost:3001/api/refmat/addref",form)
         .then((res)=>{
-          if(res.data.message==="Material Upload Successfully"){
+          if(res.data.message==="Reference material added!"){
             alert(res.data.message)
-            window.location.reload(false);
-          }else{
-            alert("Not upload")
-            }
-
-          })}
-          
-        }
+           
+         
+     } })}
+   
+    
           
 return(
   <Box m="20px" display="flex">
@@ -42,9 +36,9 @@ return(
      <br/>
      <br/>
      <label>Reference Material</label>
-      <TextField fullWidth variant="outlined" value={form.topic}  
+      <TextField fullWidth variant="outlined" value={form.references}  
        onChange={(e)=>{
-        setForm({...form,topic:e.target.value})
+        setForm({...form,references:e.target.value})
       }}/>
       
       <br/>
