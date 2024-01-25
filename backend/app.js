@@ -68,12 +68,9 @@ app.use('/api/subject', subjectRoutes);
 app.use('/api/mentor', MentorRoutes);
 app.use('/api/project', ProjectTopicRoutes)
 app.use('/api/list', SubmissionListRoutes);
-app.use('/api/evaluate', EvaluateRoutes);
 app.use('/api/user',UserRoutes);
 app.use('/api/refmat', RefmatRoutes);
 app.use('api/mentor', MentorRoutes);
-app.use('/api/project', ProjectTopicRoutes)
-app.use('/api/submissionlist', SubmissionListRoutes);
 app.use('/api/evaluate', EvaluateRoutes);
 app.use('/api/user',UserRoutes);
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {  Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, ListItemIcon, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, IconButton, ListItemIcon, Typography, useTheme , Button} from "@mui/material";
+import { Link ,useNavigate} from "react-router-dom";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -9,14 +9,20 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
 import { ProSidebar } from 'react-pro-sidebar';
-
-
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  
+ 
+
+
+
   return (
     <MenuItem
       active={selected === title}
@@ -37,6 +43,13 @@ const MentSidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const navigate=useNavigate();
+
+
+  const logout=()=>{
+    sessionStorage.clear()
+   navigate('/login')
+  }
 
   return (
     <Box
@@ -124,8 +137,8 @@ const MentSidebar = () => {
            <Typography
            vaiant='h6'
            color={colors.grey[300]}
-           sx={{m: "15px 0 5px 20px"}}
-           ><ListItemIcon/> Project</Typography>
+           sx={{m: "0px 0 5px 20px"}}
+           ><ReceiptOutlinedIcon/> PROJECT</Typography>
             <Item
               title="Project Topics"
               to="/menttopics"
@@ -138,12 +151,11 @@ const MentSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            {/* <Typography
-            variant="h6"
-            color={colors.grey[300]}
-            sx={{m: "15px 0 5px 20px"}}
-            > Evaluation</Typography>
-         */}
+           <Typography
+           vaiant='h6'
+           color={colors.grey[300]}
+           sx={{m: "15px 0 5px 20px"}}
+           ><ChecklistIcon/> EVALUATION</Typography>
             <Item
               title="Evaluations"
               to="/evals"
@@ -161,31 +173,24 @@ const MentSidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           >References</Typography>
+           ><MenuBookIcon/> REFERENCES</Typography>
 
             <Item
-              title="Ref Materials"
+              title="Reference Materials"
               to="/refmaterials"
-              icon={<ListItemIcon/>}
               selected={selected}
               setSelected={setSelected}
             />
              <Item
               title="Add Reference"
               to="/addrefers"
-              
               selected={selected}
               setSelected={setSelected}
             />
             
 
-            <Item
-              title="Logout"
-              to="/login"
-              icon={<LogoutIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+                  
+            <Button style={{textDecoration :"none", color  : "grey" , paddingLeft: "10%"}} onClick={logout}  startIcon={<LogoutIcon/>}>Log out</Button>
           </Box>
         </Menu>
       </ProSidebar>

@@ -54,17 +54,14 @@ router.post("/addDetails",  async (req, res) => {
 router.put("/updateDetails/:id", async (req, res) => {
   try {
     let updateMentor = await MentorModel.findByIdAndUpdate(req.params.id, req.body);
-    if (!updateMentor) {
-      return res.status(400).json({
-        success: false,
-        message: "No Mentor Found",
+    if (updateMentor) {
+      return res.status(200).json({
+        
+       "message": "Updation Successful!"
       });
     }
-    const data = {
-      success: true,
-      message: "Updation Successfull!",
-    };
-    res.json(data);
+   
+    
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }

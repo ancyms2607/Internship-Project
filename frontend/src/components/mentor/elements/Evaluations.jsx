@@ -62,7 +62,7 @@ import MentSidebar from "./MentSidebar";
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="password">
-                      {val.student}
+                      {val.student_name}
                   </Typography>
                   <br/>
                   <Typography variant="body2" type="text" >

@@ -9,7 +9,7 @@ import topicadd from "../../../../src/App.css"
 
 const AddTopic = (props) => {
     const [form,setForm]=useState({
-         Course: props.data.Course,
+         Course:props.data.Course,
         ProjectTopic:props.data.ProjectTopic,
         Batch:props.data.Batch,
         Mentor:props.data.Mentor

@@ -6,7 +6,7 @@ import axios from 'axios';
 import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
-import App from './../../../../src/App.css';
+import App from '../../../../src/App.css';
 
 
 const Addnewmentor = (props) => {
@@ -25,8 +25,6 @@ const Addnewmentor = (props) => {
             alert(res.data.message)
             navigate('/mentors');
            })
-         
-          
          
      }
   return (
@@ -61,14 +59,25 @@ const Addnewmentor = (props) => {
       }} value={form.PhoneNumber}/>
       <br/>
       <br/>
-      <TextField
-        variant="outlined" multiline rows={2} fullWidth  type="password" label="Password"
+      {/* <TextField
+        variant="outlined" multiline rows={2} fullWidth  type="password" label="Password" id="outlined-password-input"
         onChange={(e)=>{
           setForm({...form,Password:e.target.value})
         }} value={form.Password}
-      />
-      <br/>
-      <br/>
+      /> */}
+
+      <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          onChange={(e)=>{
+                setForm({...form,Password:e.target.value})
+              }} value={form.Password}
+          
+        /> <br/>
+<br/>
+
       
       <TextField fullWidth variant="outlined" multiline rows={2} type='text' label="Project Topics" 
        onChange={(e)=>{

@@ -52,13 +52,28 @@ const deleteSubmission= async (req, res) => {
   }; 
 
 
-//  route to filter projects basedon topic and batch
+//  route to filter projects based on topic and batch
+
 const filterSubmissions= async (req, res) => {
-    const { topic, batch } = req.params;
-  
-    try {
-      let submissions = await SubmissionList.find({ topic, batch });
-      res.json(submissions);
+   
+   try {
+     const { topic , batch } = req.body;
+    let filter={}
+     if(topic){
+      filter.topic=topic
+     }
+     if(batch){
+      filter.batch=batch
+     }
+
+//     const filter = {
+//       $or: [
+//         { batch: { $regex: search, $options: 'i' } },
+//         { topic: { $regex: search, $options: 'i' } },
+//       ],
+//     };
+const filteredSubmissions = await SubmissionList.find(filter);
+res.json(filteredSubmissions);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });

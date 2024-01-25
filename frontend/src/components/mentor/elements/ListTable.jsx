@@ -20,11 +20,14 @@ useEffect(()=>{
 },[])
      
   return (
+    <>
+    <Typography variant="h1" style={{color:'white', textAlign: "center", marginTop: "3%"}} >Evaluation Status</Typography>
 
-    <TableContainer component={Paper} style={{width:'80%',margin:'7%'}}>
+    <TableContainer component={Paper} style={{width:'80%', marginTop: "4%", marginLeft : "10%" , backgroundColor: "darkblue"}}>
       
-      {list.map((val,i)=>(
-    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      
+      
+    <Table style={{ width: "100%", color: "white", marginLeft: "5%" }}>
       <TableHead>
         <TableRow>
           <TableCell>Group No:</TableCell>
@@ -35,11 +38,16 @@ useEffect(()=>{
       </TableHead>
       
       <TableBody>
-      
+      {list.map((val,i)=>(
         
-            <TableRow >
+            <TableRow key={i}>
                <TableCell>{val.group}</TableCell>
-               <TableCell rows={4}>{val.submissionLink}</TableCell>
+               <TableCell rows={5}>
+               <TableCell>{val.submissionLink[0]}</TableCell><br/>
+               <TableCell>{val.submissionLink[1]}</TableCell><br/>
+               <TableCell>{val.submissionLink[2]}</TableCell><br/>
+               <TableCell>{val.submissionLink[3]}</TableCell>
+                </TableCell>
                <TableCell>
                {/* <select>
                  <option  value="Pending" style={{color: "darkred" , fontSize: "15px"}}>Pending</option>
@@ -50,12 +58,13 @@ useEffect(()=>{
             </TableRow>
         
     
-        
+        ))}
         
       </TableBody>
     </Table>
-    ))}
+  
   </TableContainer>
+  </>
 );
 }
 

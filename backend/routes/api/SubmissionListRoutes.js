@@ -14,7 +14,7 @@ router.route('/')
  router.route('/deleteSubmission/:id')
    .delete(SubmissionListController.deleteSubmission)
 
- router.route('/:topic/:batch')
-    .get(SubmissionListController.filterSubmissions);
+ router.route('/filter')
+    .post(SubmissionListController.filterSubmissions);
 
 module.exports=router;

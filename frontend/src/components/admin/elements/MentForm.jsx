@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, TextField, Typography , Box} from "@mui/material";
 import  { useEffect, useState } from "react";
-import {redirect} from "react-router-dom";
+import {redirect , useNavigate} from "react-router-dom";
 import axios from 'axios';
 import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
@@ -17,6 +17,9 @@ const MentForm = (props) => {
         Password:props.data.Password,
         ProjectTopics:props.data.ProjectTopics
      }) 
+    
+    const navigate=useNavigate();
+
      function submitHandler(){
           //  axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
           //   alert(res.data.message)
@@ -25,19 +28,21 @@ const MentForm = (props) => {
             axios.put("http://localhost:3001/api/mentor/updateDetails/"+props.data._id,form)
             .then((res)=>{
              
-              if (res.data.message==="No Mentor Found") {
-               alert(res.data.message)
+              if (res) {
+               alert("Updation Successful!")
                 window.location.reload(false);
-          
                 
               } else {
-                alert("Updation Successful")
+                alert("No mentor found!!")
+                
+
               }
             })}
             else{
             axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
               alert(res.data.message);
-           
+              navigate('/mentors')
+               
             })}
          
      }

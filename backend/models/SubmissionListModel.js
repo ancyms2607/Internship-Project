@@ -2,6 +2,8 @@ const mongoose=require('mongoose');
 const SubmissionListSchema= mongoose.Schema({
 
     group:Number,
+    topic:String,
+    batch:String,
     submissionLink: Array,
     status:String
 

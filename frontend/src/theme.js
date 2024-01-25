@@ -212,6 +212,6 @@ export const useMode = () => {
     []
   );
 
-  const theme = useMemo(() => createTheme(themeSettings(inputFocused ? "light" : mode)), [mode, inputFocused]);
+  const theme = useMemo(() => createTheme(themeSettings(inputFocused ? "light" : mode)), [mode,inputFocused]);
   return [theme, colorMode];
 };

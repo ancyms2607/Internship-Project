@@ -52,7 +52,7 @@ function App() {
      <Route path='/addnewmentor' element={<Main child={<Addnewmentor/>}/>}/>
 
 
-     <Route path='/dashment' element={<Common child={<MentDashboard/>}/>}/>
+     <Route path='/dashment' element={<PrivateRoute Component={MentDashboard}/>}/>
      <Route path='/menttopics' element={<Common child={<MentTopic/>}/>}/>
 
      <Route path='/table' element={<ListTable/>}/>
