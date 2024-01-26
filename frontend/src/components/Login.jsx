@@ -90,10 +90,11 @@
              
                   <section style={{marginTop: "10%" , marginLeft: "35%"}}>
                      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                     <h1 style={{color: "white"}}>ICTAK Internship Portal-Login Form</h1>
+                     <h1 style={{color: "white"}}>ICTAK Internship Portal  </h1>
+                     
                      
                          <label htmlFor="username">
-                             Username:
+                             Username
                              
                          </label>
                          <input
@@ -117,7 +118,7 @@
 
 
                          <label htmlFor="password">
-                             Password:
+                             Password
                              
                          </label>
                          <input
@@ -138,7 +139,7 @@
 
                 
                 <br/>
-                         <button style={{fontSize: "medium" , padding: "10px" }} onClick={handleSubmit}>LOGIN</button>
+                         <button style={{fontSize: "medium" , padding: "8px" }} onClick={handleSubmit}><b>LOGIN HERE</b></button>
                      
                  
 </section>
