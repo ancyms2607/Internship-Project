@@ -46,6 +46,14 @@ import SearchIcon from '@mui/icons-material/Search';
     }
     
   }
+
+  
+function removeSub(id){
+  axios.delete('http://localhost:3001/api/list/deleteSubmission/'+id).then((res)=>{
+    alert(res.data.message);
+    window.location.reload(false);
+  })
+}
    
    return(
     <Box m="20px" display="flex">
@@ -103,7 +111,7 @@ import SearchIcon from '@mui/icons-material/Search';
                     </Typography>
                     <br/>
                   <br/>
-                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}}>Delete</Button>
+                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}}  onClick={()=>{removeSub(val._id)}} >Delete</Button>
                  
                 
                           

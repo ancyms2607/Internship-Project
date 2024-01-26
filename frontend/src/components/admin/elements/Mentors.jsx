@@ -34,6 +34,7 @@ const Mentors = () => {
   setUpdate(true);
   setSingleValue(val)
 }
+
 function removeMentor(id){
   axios.delete('http://localhost:3001/api/mentor/deleteDetails/'+id).then((res)=>{
     alert(res.data.message);

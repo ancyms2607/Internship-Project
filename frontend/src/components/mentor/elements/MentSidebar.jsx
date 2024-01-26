@@ -138,6 +138,7 @@ const MentSidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "0px 0 5px 20px"}}
+           fontSize={"15px"}
            ><ReceiptOutlinedIcon/> PROJECT</Typography>
             <Item
               title="Project Topics"
@@ -150,11 +151,12 @@ const MentSidebar = () => {
               to="/mentsub"
               selected={selected}
               setSelected={setSelected}
-            />
+            /><br/>
            <Typography
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
+           fontSize={"15px"}
            ><ChecklistIcon/> EVALUATION</Typography>
             <Item
               title="Evaluations"
@@ -162,17 +164,17 @@ const MentSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            
             <Item
               title="Evaluate"
               to="/evaluate"
               selected={selected}
               setSelected={setSelected}
-            />  
+            /><br/>  
             <Typography
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
+           fontSize={"15px"}
            ><MenuBookIcon/> REFERENCES</Typography>
 
             <Item
@@ -186,10 +188,7 @@ const MentSidebar = () => {
               to="/addrefers"
               selected={selected}
               setSelected={setSelected}
-            />
-            
-
-                  
+            /><br/>     
             <Button style={{textDecoration :"none", color  : "grey" , paddingLeft: "10%"}} onClick={logout}  startIcon={<LogoutIcon/>}>Log out</Button>
           </Box>
         </Menu>

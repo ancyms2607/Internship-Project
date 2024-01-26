@@ -26,7 +26,7 @@ const Item = ({ title, to, icon, selected, setSelected , onClick}) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.grey[100]
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -136,24 +136,28 @@ const Sidebar = () => {
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           ><ReceiptOutlinedIcon/> Project</Typography>
+           fontSize={"15px"}
+           ><ReceiptOutlinedIcon/> PROJECT</Typography>
             <Item
+              
               title="Project Topics"
               to="/topics"
               selected={selected}
               setSelected={setSelected}
+              
             />
            <Item
            title="Add Topic"
            to="/addnewtopic"
            selected={selected}
            setSelected={setSelected}
-           />
+           /><br/>
            <Typography
            vaiant='h6'
            color={colors.grey[300]}
            sx={{m: "15px 0 5px 20px"}}
-           ><PeopleOutlinedIcon/> Mentor</Typography>
+           fontSize={"15px"}
+           ><PeopleOutlinedIcon/> MENTOR</Typography>
             
             <Item
               title="Mentors"
@@ -168,15 +172,8 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
-            {/* <Item
-              title="Logout"
-            
-              icon={<LogoutIcon />}
-              selected={selected}
-              setSelected={setSelected}
-          > 
-          </Item> */}
+           <br/>
+           
 
             <Button style={{textDecoration :"none", color  : "grey" , paddingLeft: "10%"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
             
