@@ -16,10 +16,27 @@ import {
 import MentSidebar from "./MentSidebar";
   
   const Refmats = () => {
+    const [reference,setRef] = useState([]);
+    
+    
+    useEffect(()=>{
+      axios.get('http://localhost:3001/api/refmat/getRef').then((res)=>{
+        // console.log(res.data);
+        setRef(...reference,res.data)
+        
+      })
+ },[])
+
+
+ 
+function removeRef(id){
+  axios.delete('http://localhost:3001/api/refmat/deleteRef/'+id).then((res)=>{
    
-  
+  alert(res.data.message);
+  window.location.reload(false);
+    } )}
    
-   return(
+  return(
     <Box m="20px" display="flex">
         {/* SIDEBAR */}
         <MentSidebar />
@@ -30,17 +47,20 @@ import MentSidebar from "./MentSidebar";
                   </Typography>
         <br/>
         <Grid container spacing={2}>
+        {reference.map((val,i)=>(
     
-            <Grid item  xs={12} sm={6} md={4}>
-            <Card sx={{ maxWidth: 350 }} style={{color:"white", marginLeft: "5%"}} >
+            <Grid item key={i}  sm={16} md={8}>
+
+            <Card sx={{ maxWidth: 500 }} style={{color:"white", marginLeft: "5%"}} >
             
                 <CardContent>
                   
                   <Typography gutterBottom variant="h3" component="div">
-                    Reference:
+                    
+                    {val.references}
                   </Typography>
                   <br/>
-                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginRight:"50px"}}>
+                  <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginRight:"50px"}}onClick={()=>{removeRef(val._id)}}>
                     Delete</Button>
                  
                   
@@ -49,14 +69,15 @@ import MentSidebar from "./MentSidebar";
                 </CardContent>
                 </Card>
                 </Grid>
-              
+           
           
-        </Grid>
-        
+        ))}
+
+</Grid>   
        </div>
        </Box>
-    )
-   
-          }
+  
+  )
+        }    
   
   export default Refmats;

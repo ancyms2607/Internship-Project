@@ -15,7 +15,7 @@ const AddRefmat = (props) => {
 
     function submitform(){
         
-        axios.post("http://localhost:3001/api/refmat/addref",form)
+        axios.post("http://localhost:3001/api/refmat/addRef",form)
         .then((res)=>{
           if(res.data.message==="Reference material added!"){
             alert(res.data.message)
@@ -31,7 +31,7 @@ return(
   <MentSidebar />
 
     <div style={{marginLeft:"10%"}} className='App'>
-     <Typography variant='h1' style={{color:'darkblue'}} >Add Reference Materials</Typography>
+     <Typography variant='h1' style={{color:'white'}} >Add Reference Materials</Typography>
 
      <br/>
      <br/>

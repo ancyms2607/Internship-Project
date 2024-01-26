@@ -4,19 +4,19 @@ const RefmatController = require('../../controllers/RefmatControllers');
 
 
 
-router.route('/')
+router.route('/getRef')
     .get(RefmatController.getAllReferences)
+    // .post(RefmatController.createNewRefmat)
+
+
+//  router.route('/delete/:id')
+//     .delete( RefmatController.deleteRefmat);
+router.route('/addRef')
+    // .get(RefmatController.getAllReferences)
     .post(RefmatController.createNewRefmat)
 
 
- router.route('/delete/:id')
-    .delete( RefmatController.deleteRefmat);
-router.route('/addref')
-    .get(RefmatController.getAllReferences)
-    .post(RefmatController.createNewRefmat)
-
-
- router.route('/refdelete/:id')
+ router.route('/deleteRef/:id')
     .delete( RefmatController.deleteRefmat);
 
 
