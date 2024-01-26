@@ -111,7 +111,7 @@
 
                 
                 <br/>
-                         <button style={{fontSize: "medium" , padding: "8px" }} onClick={handleSubmit}><b>LOGIN HERE</b></button>
+                         <button style={{fontSize: "medium" , padding: "8px" }} onClick={handleSubmit}><b>LOGIN </b></button>
                      
                  
 </section>

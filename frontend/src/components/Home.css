@@ -1,69 +1,23 @@
-/* .home-container {
-    display: grid;
-    grid-template-rows: 80vh 20vh;
-    height: 100vh;
-  }
-  
-  .homebg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
 
-
-  /* body, html {
-    height: 100%;
-  }
-  .container {
-    position: relative;
-    background-image: url("https://s3.ap-south-1.amazonaws.com/s3.studytonight.com/tutorials/uploads/pictures/1627476216-101156.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-    width: 50%;
-    border: 2px solid blue;
-  }
-  button{
-  position: absolute;
-  padding: 10px;
-  background-color: rgba(0 , 0,0,0.3);
-  border-radius: 16px;
-  bottom: 5%;
-  left: 40%;
-  width: 80px;
-}
-h2 {
-   text-align: center;
-   background-color: rgba(256 , 256,256,0.5);
-   font-size: 30px;
-}
-button:hover {
-    background-color: blue;
-    color: white;
-} */
-
-
-/* Container needed to position the button. Adjust the width as needed */
 .container {
     position: relative;
     width: 100%;
     height: 100vh;
   }
-  
-  /* Make the image responsive */
-  .container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+
+  body, html {
+    height: 100%;
+  }
+  .bg {
+    /* background-image: url("https://retail.ictkerala.org/pluginfile.php/9699/coursecat/description/1.%20Academic%20Trainings.png"); */
+    background-image: url("https://scontent.ftrv4-1.fna.fbcdn.net/v/t39.30808-6/420606996_866022735530068_3560297492666861847_n.png?stp=dst-png_s960x960&_nc_cat=103&ccb=1-7&_nc_sid=783fdb&_nc_ohc=wdk92hoSmMAAX_W4V7a&_nc_ht=scontent.ftrv4-1.fna&oh=00_AfBFESr4qrldR5iz4LSJ8wfR7XQKwks9TD3vnMDULT3pAA&oe=65B934F8");
+    height: 95vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
+<<<<<<< Updated upstream
   /* Style the button and place it in the middle of the container/image */
   .container .btn {
     position: absolute;
@@ -83,4 +37,13 @@ button:hover {
   
   .container .btn:hover {
     background-color: black;
+=======
+
+  /* LOGO CSS */
+
+ .logo img{
+    height: 50px;
+    display:block;
+    width: 50px;
+>>>>>>> Stashed changes
   }
