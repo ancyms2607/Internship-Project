@@ -9,7 +9,7 @@
     height: 100%;
   }
   .bg {
-    /* background-image: url("https://retail.ictkerala.org/pluginfile.php/9699/coursecat/description/1.%20Academic%20Trainings.png"); */
+    
     background-image: url("https://scontent.ftrv4-1.fna.fbcdn.net/v/t39.30808-6/420606996_866022735530068_3560297492666861847_n.png?stp=dst-png_s960x960&_nc_cat=103&ccb=1-7&_nc_sid=783fdb&_nc_ohc=wdk92hoSmMAAX_W4V7a&_nc_ht=scontent.ftrv4-1.fna&oh=00_AfBFESr4qrldR5iz4LSJ8wfR7XQKwks9TD3vnMDULT3pAA&oe=65B934F8");
     height: 95vh; 
     background-position: center;
@@ -17,7 +17,7 @@
     background-size: cover;
   }
   
-<<<<<<< Updated upstream
+
   /* Style the button and place it in the middle of the container/image */
   .container .btn {
     position: absolute;
@@ -35,9 +35,7 @@
     font-weight: 600;
   }
   
-  .container .btn:hover {
-    background-color: black;
-=======
+  
 
   /* LOGO CSS */
 
@@ -45,5 +43,7 @@
     height: 50px;
     display:block;
     width: 50px;
->>>>>>> Stashed changes
+
   }
+
+  

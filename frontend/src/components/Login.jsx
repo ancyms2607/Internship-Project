@@ -1,9 +1,14 @@
  import { useRef, useState, useEffect } from "react";
  import '../components/index.css'
- 
-
  import axios from "axios";
  import { useNavigate } from 'react-router-dom';
+
+ import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { Link as RouterLink } from 'react-router-dom'
  
  const REGISTER_URL = 'http://localhost:3001/api/auth/login';
 
@@ -68,18 +73,44 @@
      }
 
      return (
-             <>
+        
+        <>
+         <Box sx={{ flexGrow: 1 }}>
+      <AppBar sx={{bgcolor:"#002366"}}position="static">
+      
+        <Toolbar>
+         
+         
+          <div className="logo" >
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/ICT_Academy_Kerala.webp"alt=""/>
+
+</div> 
+         
+     
+          <Typography variant="h4" component="div" sx={{ flexGrow: 1 }} margin="20px" >
+            ICT ACADEMY OF KERALA
+          </Typography >
+          
+         
+        
+        </Toolbar>
+      </AppBar>
+      
+    </Box>
+             
              
                   <section style={{marginTop: "10%" , marginLeft: "35%"}}>
                      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                      <h1 style={{color: "white"}}>ICTAK Internship Portal  </h1>
                      
                      
-                         <label htmlFor="username">
+                         <label  htmlFor="username">
                              Username
                              
                          </label>
                          <input
+                                             
                              type="text"
                              id="username"
                              autoComplete="off"
@@ -89,8 +120,9 @@
                              ref={userRef}
                             
                              aria-describedby="uidnote"
-                        
+                              
                          />
+                          
                         
                          <label htmlFor="password">
                              Password
