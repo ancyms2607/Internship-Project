@@ -23,7 +23,7 @@ useEffect(()=>{
     <>
     <Typography variant="h1" style={{color:'white', textAlign: "center", marginTop: "3%"}} >Evaluation Status</Typography>
 
-    <TableContainer component={Paper} style={{width:'80%', marginTop: "4%", marginLeft : "10%" , backgroundColor: "darkblue"}}>
+    <TableContainer component={Paper} style={{width:'80%', marginTop: "4%", marginLeft : "10%" , backgroundColor: "#232640"}}>
       
       
       

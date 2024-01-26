@@ -42,7 +42,7 @@ function removeRef(id){
         <MentSidebar />
       
        <div >
-        <Typography variant="h2" style={{color:"darkblue", margin: "20px"}} >
+        <Typography variant="h2" style={{color:"white", margin: "20px"}} >
                     Reference Materials for better practice
                   </Typography>
         <br/>
@@ -51,7 +51,7 @@ function removeRef(id){
     
             <Grid item key={i}  sm={16} md={8}>
 
-            <Card sx={{ maxWidth: 500 }} style={{color:"white", marginLeft: "5%"}} >
+            <Card sx={{ maxWidth: 500 }} style={{color:"white", marginLeft: "5%" , backgroundColor:"#232640"}} >
             
                 <CardContent>
                   

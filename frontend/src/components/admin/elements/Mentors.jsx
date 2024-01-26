@@ -53,7 +53,7 @@ let finalJSX=(
       <Grid container spacing={2}>
              {mentor.map((val,i)=>(
           <Grid item key={i}  md={12} >
-          <Card style={{ width: "1100px", color: "white", margin: "5%", backgroundColor: "darkblue" }} >
+          <Card style={{ width: "1100px", color: "white", margin: "5%", backgroundColor: "#232640" }} >
           
               <CardContent>
                 

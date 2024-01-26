@@ -23,6 +23,7 @@ import AddRefmat from './components/mentor/elements/AddRefmat';
 import PrivateRoute from './components/PrivateRoute';
 import Addnewtopic from './components/admin/elements/Addnewtopic';
 import Addnewmentor from './components/admin/elements/Addnewmentor';
+import Valuation from './components/mentor/elements/Valuation';
 
 
 
@@ -60,6 +61,8 @@ function App() {
      <Route path='/mentsub'element={<Common child={<Submissions/>}/>}/>
      <Route path='/evals'element={<Common child={<Evaluations/>}/>}/>
      <Route path='/evaluate' element={<Common child={<Evaluate/>}/>}/>
+     <Route path='/valuation' element={<Common child={<Valuation/>}/>}/>
+
      <Route path='/refmaterials' element={<Common child={<Refmats/>}/>}/>
      <Route path='/addrefers' element={<Common child={<AddRefmat/>}/>}/>
      

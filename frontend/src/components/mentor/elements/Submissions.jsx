@@ -61,21 +61,21 @@ function removeSub(id){
         <MentSidebar/>
       
        <div >
-        <Typography variant="h1" style={{color:'white', textAlign: "center", marginTop: "3%"}}>
+        <Typography variant="h1" style={{color:'white', marginLeft:"5%", marginTop: "3%"}}>
                     Submissions
          </Typography>
         <br/>
-      <TextField style={{margin:" 0 28px "}} id="outlined-basic" label="Search Topic" variant="outlined" value={topic} onChange={(e)=>{
+      <TextField style={{margin:" 0 28px "}} id="outlined-basic" placeholder="Search Topic" variant="outlined" value={topic} onChange={(e)=>{
         setTopic(e.target.value)
       }} /> 
-      <TextField style={{margin:"0 15px"}} id="outlined-basic" label="Search Batch" variant="outlined" value={batch} onChange={(e)=>{
+      <TextField style={{margin:"0 15px"}} id="outlined-basic" placeholder="Search Batch" variant="outlined" value={batch} onChange={(e)=>{
         setBatch(e.target.value)
       }} /> 
         <Button variant="filled" style={{color: "white", backgroundColor: "darkcyan"}} startIcon={<SearchIcon/>} onClick={filterSub}>Filter Projects</Button>
         <Grid container spacing={2}>
            {sub.map((val,i)=>(
             <Grid item key={i}   md={6}>
-            <Card  style={{ width: "500px", color: "white", margin: "5%", backgroundColor: "darkblue" }} >
+            <Card  style={{ width: "500px", color: "white", margin: "5%", backgroundColor: "#232640" }} >
             
                 <CardContent>
                   

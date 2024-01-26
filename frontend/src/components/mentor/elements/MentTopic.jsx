@@ -64,13 +64,13 @@ import { useEffect, useState } from "react";
       
       <MentSidebar/>
       <div style={{color:colors.green}}  >
-       <Typography variant="h1"  style={{color:'white' , marginTop: "2%" , textAlign: "center"}} >Project Topics</Typography>
+       <Typography variant="h1"  style={{color:'white' ,marginLeft:"6%", marginTop: "2%"}} >Project Topics</Typography>
        <br/>
       <Grid container spacing={2}>
            {topics.map((val,i)=>(
             
         <Grid item   sm={12} md={6}>
-          <Card style={{ width: "550px", color: "white", marginLeft: "5%",  marginTop: "50px", backgroundColor: "darkblue" }} >
+          <Card style={{ width: "550px", color: "white", marginLeft: "5%",  marginTop: "50px", backgroundColor: "#232640" }} >
           
             <CardContent>
                 

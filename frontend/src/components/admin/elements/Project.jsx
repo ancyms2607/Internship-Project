@@ -72,7 +72,7 @@ import AddTopic from "./AddTopic";
         {topicData.map((val,i)=>(
           
         <Grid item key={i}  sm={12} md={6}>
-        <Card style={{ width: "550px", color: "white", marginLeft: "5%", backgroundColor: "darkblue" }}>
+        <Card style={{ width: "550px", color: "white", marginLeft: "5%", backgroundColor: "#232640" }}>
            
            <CardContent>
                 
@@ -93,9 +93,9 @@ import AddTopic from "./AddTopic";
                {val.Mentor} 
               </Typography>
               <br/>
-              <Button variant="outlined" style={{backgroundColor:"white", color:"grey", marginLeft:'10px'}} onClick={()=>{removeTopic(val._id)}}>Delete</Button>
+              <Button variant="outlined" style={{backgroundColor:"white", color:"blue", marginLeft:'10px', borderRadius:"10px" }} onClick={()=>{removeTopic(val._id)}}>Delete</Button>
              
-              <Button  variant="outlined" className="btn btn-danger" style={{backgroundColor:"white", color:"grey", marginLeft:"10px"}} onClick={()=>updateTopic(val)}>Update</Button>
+              <Button  variant="outlined" className="btn btn-danger" style={{backgroundColor:"white", color:"black", marginLeft:"10px", borderRadius:"10px" }} onClick={()=>updateTopic(val)}>Update</Button>
                       
                    
             </CardContent>

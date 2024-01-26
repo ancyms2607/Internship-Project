@@ -166,7 +166,7 @@ const MentSidebar = () => {
             />
             <Item
               title="Evaluate"
-              to="/evaluate"
+              to="/valuation"
               selected={selected}
               setSelected={setSelected}
             /><br/>  
