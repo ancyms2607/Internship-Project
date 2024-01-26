@@ -1,24 +1,17 @@
 import {
     Button,
     Card,
-    CardActions,
     CardContent,
-    CardMedia,
     Grid,
     Typography,
     Box,
     TextField
   } from "@mui/material";
-  import axios from "axios";
-  import React, { useEffect, useState } from "react";
-  import {tokens} from "../../../theme"
-  import App from "../../../../src/App.css"
-  
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import MentSidebar from "./MentSidebar";
-import { TopicTwoTone } from "@mui/icons-material";
 import SearchIcon from '@mui/icons-material/Search';
 
-  
   const Submissions = () => {
   const [sub,setSub]=useState([])
   const [filter,setFilter]=useState('')

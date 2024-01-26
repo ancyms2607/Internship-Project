@@ -1,9 +1,7 @@
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
-  CardMedia,
   Grid,
   Typography,
   Box
@@ -23,7 +21,6 @@ const Mentors = () => {
 
  useEffect(()=>{
         axios.get('http://localhost:3001/api/mentor/getDetails').then((res)=>{
-          // console.log(res.data);
           setMentor(res.data)
           console.log(mentor)
         })
@@ -79,16 +76,11 @@ let finalJSX=(
                 <br/>
                 <Button variant="outlined" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}} onClick={()=>{removeMentor(val._id)}}>Delete</Button>
                
-                <Button  variant="outlined" className="btn btn-danger" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}}  onClick={()=>updateMentor(val)} >Update</Button>
-                        
-                     
+                <Button  variant="outlined" className="btn btn-danger" style={{backgroundColor:"white", color:"black",marginLeft:"5px"}}  onClick={()=>updateMentor(val)} >Update</Button>    
               </CardContent>
               </Card>
               </Grid>
               ))}
-            
-            
-        
       </Grid>
       
      </div>
@@ -97,10 +89,8 @@ let finalJSX=(
   if(update) finalJSX=<MentForm method="put" data={singleValue}/>
   return (
   
-    
-     finalJSX
+    finalJSX
      
-   
     )
     }
     

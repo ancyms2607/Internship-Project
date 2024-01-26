@@ -66,12 +66,7 @@ const filterSubmissions= async (req, res) => {
       filter.batch=batch
      }
 
-//     const filter = {
-//       $or: [
-//         { batch: { $regex: search, $options: 'i' } },
-//         { topic: { $regex: search, $options: 'i' } },
-//       ],
-//     };
+
 const filteredSubmissions = await SubmissionList.find(filter);
 res.json(filteredSubmissions);
     } catch (error) {

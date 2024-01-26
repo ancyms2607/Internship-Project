@@ -6,4 +6,5 @@ const verifyJWT = require('../../middleware/verifyJWT');
 router.route('/')
     .get( RefreshTokenController.handleRefreshToken);
 
+router.route('/')
 module.exports = router;

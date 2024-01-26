@@ -47,13 +47,15 @@ const createEvaluation= async (req, res) => {
 
 const updateEvaluation = async (req, res) => {
     try {
-        const id=req.params;
-        const evaluation = await Evaluation.findById(id);
-        if(!evaluation){
-            return res.status(204).json({'message': `No evaluation matches ID ${req.params.id}`});
+         const id=req.params.id;
+        
+        let updatedEvaluation = await Evaluation.findByIdAndUpdate({_id:id}, req.body,{new:true});
+        if (updatedEvaluation) {
+          return res.status(200).json({
+            
+           "message": "Evaluation Updated!!"
+          });
         }
-        const updatedEvaluation = await Evaluation.findByIdAndUpdate(id, req.body, {new:true});
-        res.status(200).json({'message': 'Evaluation  updated successfully'})
         
     } catch (error) {
         res.status(500).json({ error: error.message });

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Button, TextField, Typography,Box } from "@mui/material";
-import  { useEffect, useState } from "react";
-import {redirect , useNavigate} from "react-router-dom";
+import  { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
-import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
-import topicadd from "../../../../src/App.css"
+
 
 const Addnewtopic = () => {
     const [form,setForm]=useState({

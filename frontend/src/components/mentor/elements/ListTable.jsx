@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-import { TextField, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 
 const ListTable = () => {
@@ -49,10 +49,7 @@ useEffect(()=>{
                <TableCell>{val.submissionLink[3]}</TableCell>
                 </TableCell>
                <TableCell>
-               {/* <select>
-                 <option  value="Pending" style={{color: "darkred" , fontSize: "15px"}}>Pending</option>
-                 <option value="Completed"" style={{color: " darkgreen", fontSize: "15px}}>Completed</option>
-                </select> */}
+               
                 <Typography >{val.status}</Typography>
                </TableCell>
             </TableRow>

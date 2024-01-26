@@ -1,11 +1,8 @@
 import React from 'react'
 import { Button, TextField, Typography,Box } from "@mui/material";
-import  { useEffect, useState } from "react";
-import {redirect} from "react-router-dom";
+import  { useState } from "react";
 import axios from 'axios';
-import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
-import topicadd from "../../../../src/App.css"
 
 const AddTopic = (props) => {
     const [form,setForm]=useState({
@@ -14,15 +11,8 @@ const AddTopic = (props) => {
         Batch:props.data.Batch,
         Mentor:props.data.Mentor
     })
-
-   
-    
-
     function submitForm(){
-      // axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
-      //   alert(res.data.message);
-      // })
-
+    
       if(props.method==="put"){
         axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
         .then((res)=>{
@@ -44,9 +34,6 @@ const AddTopic = (props) => {
      
     }
   return (
-    
-
-  
 
   <Box m="20px" display="flex">
   {/* SIDEBAR */}

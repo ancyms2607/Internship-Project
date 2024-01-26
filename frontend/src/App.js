@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Dashboard from './components/admin/elements/Dashboard';
-import Sidebar from './components/admin/elements/Sidebar';
 import Project from './components/admin/elements/Project';
 import Main from './components/Main';
 import AddTopic from './components/admin/elements/AddTopic';

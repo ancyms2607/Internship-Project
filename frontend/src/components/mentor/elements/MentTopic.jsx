@@ -2,56 +2,27 @@ import {
     Button,
     Card,
     CardContent,
-    CardMedia,
     Grid,
     Typography,
     colors,
     Box
   } from "@mui/material";
-  import axios from "axios";
-  import App from "../../../../src/App.css"
-  import MentSidebar from "./MentSidebar";
-import { DatasetLinkedTwoTone } from "@mui/icons-material";
+import axios from "axios";
+import MentSidebar from "./MentSidebar";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-  
-  
- 
    
-  const  MentTopic=(props)=>{
+  const  MentTopic=()=>{
 
     const [topics,setTopics] = useState([])
     
 
         const [form,setForm]=useState({
             topic:'',
-            group:''
+            group:'',
+            team_members:''
         })
-    
-        // function submitForm(){
-          
-        //   if(props.method==="put"){
-        //     axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
-        //     .then((res)=>{
-             
-        //       if (res.data.message==="Topic updated successfully") {
-        //        alert(res.data.message)
-        //         window.location.reload(false);
-          
-                
-        //       } else {
-        //         alert("not updated")
-        //       }
-        //     })}
-        //     else{
-        //     axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
-        //       alert(res.data.message);
-           
-        //     })}
-         
-      
-
-
+  
     useEffect(()=>{
       axios.get('http://localhost:3001/api/project/').then((res)=>{
         console.log(res.data);
@@ -74,7 +45,7 @@ import { useEffect, useState } from "react";
           
             <CardContent>
                 
-              <Typography gutterBottom variant="2" component="div">
+              <Typography gutterBottom variant="1" component="div">
               {val.project_topic}
               </Typography>
               <br/>
@@ -88,13 +59,7 @@ import { useEffect, useState } from "react";
               </Typography>
               <br/>
               <Button style={{backgroundColor: "white"}}><Link to={'/table'} style={{ color: "grey " , textDecoration: "none", fontSize : "small"}}>View</Link></Button>
-          
-              
-
-             
-              
-                      
-                   
+        
             </CardContent>
             
           </Card>

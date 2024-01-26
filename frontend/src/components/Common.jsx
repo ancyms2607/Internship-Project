@@ -1,5 +1,4 @@
 import React from 'react'
-import MentSidebar from './mentor/elements/MentSidebar'
 
 
 

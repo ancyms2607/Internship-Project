@@ -1,10 +1,7 @@
 import React from 'react'
 import { Button, TextField, Typography,Box } from "@mui/material";
-import  { useEffect, useState } from "react";
-import {redirect} from "react-router-dom";
+import  { useState } from "react";
 import axios from 'axios';
-import {tokens} from "../../../theme"
-import App from "../../../../src/App.css"
 import MentSidebar from './MentSidebar';
 
 
@@ -23,8 +20,7 @@ const AddRefmat = (props) => {
          
      } })}
    
-    
-          
+            
 return(
   <Box m="20px" display="flex">
  
@@ -32,7 +28,6 @@ return(
 
     <div style={{marginLeft:"10%"}} className='App'>
      <Typography variant='h1' style={{color:'white'}} >Add Reference Materials</Typography>
-
      <br/>
      <br/>
      <label>Reference Material</label>
@@ -40,13 +35,10 @@ return(
        onChange={(e)=>{
         setForm({...form,references:e.target.value})
       }}/>
-      
       <br/>
       <br/>
       <br/>
-    
-      
-      <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  onClick={submitform}>
+    <Button variant="contained" style={{backgroundColor:"white" , color:"black"}}  onClick={submitform}>
             Submit
           </Button>
     </div>

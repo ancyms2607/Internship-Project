@@ -1,12 +1,9 @@
 import React from 'react'
 import { Button, TextField, Typography , Box} from "@mui/material";
-import  { useEffect, useState } from "react";
-import {redirect , useNavigate} from "react-router-dom";
+import  { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
-import {tokens} from "../../../theme"
 import Sidebar from './Sidebar';
-import Topbar from './Topbar';
-import App from '../../../../src/App.css';
 
 
 const Addnewmentor = (props) => {
@@ -59,12 +56,7 @@ const Addnewmentor = (props) => {
       }} value={form.PhoneNumber}/>
       <br/>
       <br/>
-      {/* <TextField
-        variant="outlined" multiline rows={2} fullWidth  type="password" label="Password" id="outlined-password-input"
-        onChange={(e)=>{
-          setForm({...form,Password:e.target.value})
-        }} value={form.Password}
-      /> */}
+      
 
       <TextField
           id="outlined-password-input"
@@ -74,9 +66,8 @@ const Addnewmentor = (props) => {
           onChange={(e)=>{
                 setForm({...form,Password:e.target.value})
               }} value={form.Password}
-          
-        /> <br/>
-<br/>
+          /> <br/>
+             <br/>
 
       
       <TextField fullWidth variant="outlined" multiline rows={2} type='text' label="Project Topics" 

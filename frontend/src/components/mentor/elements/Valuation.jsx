@@ -1,10 +1,8 @@
 import React from 'react'
 import { Button, TextField, Typography , Box} from "@mui/material";
-import  { useEffect, useState } from "react";
-import {redirect,useNavigate} from "react-router-dom";
+import  { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
-import {tokens} from "../../../theme"
-import App from './../../../../src/App.css';
 import MentSidebar from './MentSidebar';
 
 const Valuation = () => {
@@ -32,21 +30,21 @@ const Valuation = () => {
     {/* SIDEBAR */}
     <MentSidebar />
     <div style={{ marginTop: "2%", margin: "0% 20% 2% 20%" }} className='App'>
-     <Typography variant='h2' style={{color:"white"}} >Evaluation</Typography>
+     <Typography variant='h2' style={{color:"white"}} >Evaluate</Typography>
 
      <br/>
      
     
       <TextField fullWidth variant="outlined"  type="text" label="Status" multiline rows={2}
       onChange={(e)=>{
-       setForm({...form,topic:e.target.value})
+       setForm({...form,status:e.target.value})
      }} value={form.status}/>
      <br/>
      <br/>
   
       <TextField fullWidth variant="outlined"  type="text" label="Batch" multiline rows={2}
      onChange={(e)=>{
-      setForm({...form,topic:e.target.value})
+      setForm({...form,batch:e.target.value})
     }} value={form.batch}/>
     <br/>
     <br/>
@@ -60,7 +58,7 @@ const Valuation = () => {
       <TextField
         variant="outlined" fullWidth  type="text" label="Student Name" multiline rows={2}
         onChange={(e)=>{
-          setForm({...form,batch:e.target.value})
+          setForm({...form,student_name:e.target.value})
         }} value={form.student_name}
       />
       <br/>
@@ -68,14 +66,14 @@ const Valuation = () => {
       
       <TextField fullWidth variant="outlined" type='text' label="Link" multiline rows={2}
        onChange={(e)=>{
-        setForm({...form,mentor:e.target.value})
+        setForm({...form,link:e.target.value})
       }} value={form.link} />
       <br/>
       <br/>
       <TextField
         variant="outlined" fullWidth  type="number" label="Score" multiline rows={2}
         onChange={(e)=>{
-          setForm({...form,batch:e.target.value})
+          setForm({...form,score:e.target.value})
         }} value={form.score}
       />
       <br/>
@@ -83,7 +81,7 @@ const Valuation = () => {
       <TextField
         variant="outlined" fullWidth  type="text" label="Comments" multiline rows={2}
         onChange={(e)=>{
-          setForm({...form,batch:e.target.value})
+          setForm({...form,comments:e.target.value})
         }} value={form.comments}
       />
       <br/>

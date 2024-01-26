@@ -5,21 +5,13 @@ import { Link , useNavigate} from "react-router-dom";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
- import { ProSidebar } from 'react-pro-sidebar';
- import DeleteIcon from '@mui/icons-material/Delete';
- import Topbar from "./Topbar";
-// import Sidebar from 'react-pro-sidebar'
+import { ProSidebar } from 'react-pro-sidebar';
+import PeopleOutlined from "@mui/icons-material/PeopleOutlined";
 
-
-
-const Item = ({ title, to, icon, selected, setSelected , onClick}) => {
+const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -49,6 +41,12 @@ const Sidebar = () => {
     navigate('/login')
   }
 
+  const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>•</Box>
+  )
+
   return (
     <Box
       sx={{
@@ -69,7 +67,7 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebar collapsed={isCollapsed} style={{width: "300px"}}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -126,21 +124,22 @@ const Sidebar = () => {
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
-              title="Dashboard"
+              title="DASHBOARD"
               to="/dashadmin"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+            >/</Item><br/>
+           <Item
+              title="PROJECT"
+              to="/dashadmin"
+              icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
             >/</Item>
-           <Typography
-           vaiant='h6'
-           color={colors.grey[300]}
-           sx={{m: "15px 0 5px 20px"}}
-           fontSize={"15px"}
-           ><ReceiptOutlinedIcon/> PROJECT</Typography>
             <Item
-              
               title="Project Topics"
+              icon={bull}
               to="/topics"
               selected={selected}
               setSelected={setSelected}
@@ -148,19 +147,21 @@ const Sidebar = () => {
             />
            <Item
            title="Add Topic"
+           icon={bull}
            to="/addnewtopic"
            selected={selected}
            setSelected={setSelected}
            /><br/>
-           <Typography
-           vaiant='h6'
-           color={colors.grey[300]}
-           sx={{m: "15px 0 5px 20px"}}
-           fontSize={"15px"}
-           ><PeopleOutlinedIcon/> MENTOR</Typography>
-            
+           <Item
+           title="MENTOR"
+           icon={<PeopleOutlined/>}
+           to="/addnewtopic"
+           selected={selected}
+           setSelected={setSelected}
+           />
             <Item
               title="Mentors"
+              icon={bull}
               to="/mentors"
               selected={selected}
               setSelected={setSelected}
@@ -168,14 +169,13 @@ const Sidebar = () => {
 
             <Item
               title="Mentor Form"
+              icon={bull}
               to="/addnewmentor"
               selected={selected}
               setSelected={setSelected}
-            />
-           <br/>
+            /><br/>
            
-
-            <Button style={{textDecoration :"none", color  : "grey" , paddingLeft: "10%"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
+            <Button style={{textDecoration :"none", color  : "white" , paddingLeft: "10%", marginLeft: "2%" , fontSize:"18px"}} onClick={handleLogout} startIcon={<LogoutIcon/>}>Log out</Button>
             
           </Box>
         </Menu>
