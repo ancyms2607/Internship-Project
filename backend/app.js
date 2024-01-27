@@ -70,7 +70,6 @@ app.use('/api/project', ProjectTopicRoutes)
 app.use('/api/list', SubmissionListRoutes);
 app.use('/api/user',UserRoutes);
 app.use('/api/refmat', RefmatRoutes);
-app.use('api/mentor', MentorRoutes);
 app.use('/api/evaluate', EvaluateRoutes);
 app.use('/api/user',UserRoutes);
 
@@ -78,12 +77,12 @@ app.use('/api/user',UserRoutes);
 
 
 // serve static files
-// app.use(express.static(path.join(__dirname, './build')));
-// app.get('*', function (_, res){
-//     res.sendFile(path.join(__dirname, './build/index.html'), function(error){
-//         res.status(500).send(error);
-//     })
-// })
+app.use(express.static(path.join(__dirname, './build')));
+app.get('*', function (_, res){
+    res.sendFile(path.join(__dirname, './build/index.html'), function(error){
+        res.status(500).send(error);
+    })
+})
 
 const PORT=process.env.PORT
 

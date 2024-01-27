@@ -18,7 +18,7 @@ import AddTopic from "./AddTopic";
     var[singleValue,setSingleValue]=useState([])
  
       useEffect(()=>{
-        axios.get('http://localhost:3001/api/subject/getSubject').then((res)=>{
+        axios.get('/api/subject/getSubject').then((res)=>{
           console.log(res.data);
           setData(...topicData, res.data);
         })
@@ -31,7 +31,7 @@ import AddTopic from "./AddTopic";
       }
 
       function removeTopic(id){
-        axios.delete('http://localhost:3001/api/subject/deleteSubject/'+id).then((res)=>{
+        axios.delete('/api/subject/deleteSubject/'+id).then((res)=>{
           alert(res.data.message);
           window.location.reload(false);
         })

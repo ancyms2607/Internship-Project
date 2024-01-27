@@ -67,13 +67,13 @@ const filterSubmissions= async (req, res) => {
      }
 
 
-const filteredSubmissions = await SubmissionList.find(filter);
-res.json(filteredSubmissions);
+     const filteredSubmissions = await SubmissionList.find(filter);
+    res.json(filteredSubmissions);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
-  };
+    };
   
 
 

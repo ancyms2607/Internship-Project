@@ -20,7 +20,7 @@ const Evaluate = (props) => {
 
      function submitform(){
       if(props.method==="put"){
-        axios.put("http://localhost:3001/api/evaluate/update/"+props.data._id,form)
+        axios.put("/api/evaluate/update/"+props.data._id,form)
         .then((res)=>{
          
           if (res) {
@@ -33,7 +33,7 @@ const Evaluate = (props) => {
           }
         })}
         else{
-        axios.post('http://localhost:3001/api/evaluate/',form).then((res)=>{
+        axios.post('/api/evaluate/',form).then((res)=>{
           alert(res.data);
           navigate('/evals')
        

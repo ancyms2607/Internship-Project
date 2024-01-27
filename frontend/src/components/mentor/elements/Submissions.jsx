@@ -31,7 +31,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
   const filterSub = () => {
     try {
-      axios.post('http://localhost:3001/api/list/filter',{batch:batch,topic:topic}).then((res)=>{
+      axios.post('/api/list/filter',{batch:batch,topic:topic}).then((res)=>{
       setSub(res.data)
     })
     } catch (error) {
@@ -42,7 +42,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
   
 function removeSub(id){
-  axios.delete('http://localhost:3001/api/list/deleteSubmission/'+id).then((res)=>{
+  axios.delete('/api/list/deleteSubmission/'+id).then((res)=>{
     alert(res.data.message);
     window.location.reload(false);
   })
