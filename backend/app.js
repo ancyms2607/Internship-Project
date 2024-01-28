@@ -77,9 +77,9 @@ app.use('/api/user',UserRoutes);
 
 
 // serve static files
-app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.join(__dirname, './frontend/build')));
 app.get('*', function (_, res){
-    res.sendFile(path.join(__dirname, './build/index.html'), function(error){
+    res.sendFile(path.join(__dirname, './frontend/build/index.html'), function(error){
         res.status(500).send(error);
     })
 })
