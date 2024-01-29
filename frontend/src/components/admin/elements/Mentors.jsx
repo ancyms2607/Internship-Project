@@ -20,7 +20,7 @@ const Mentors = () => {
 
 
  useEffect(()=>{
-        axios.get('http://localhost:3001/api/mentor/getDetails').then((res)=>{
+        axios.get('/api/mentor/getDetails').then((res)=>{
           setMentor(res.data)
           console.log(mentor)
         })
@@ -33,7 +33,7 @@ const Mentors = () => {
 }
 
 function removeMentor(id){
-  axios.delete('http://localhost:3001/api/mentor/deleteDetails/'+id).then((res)=>{
+  axios.delete('/api/mentor/deleteDetails/'+id).then((res)=>{
     alert(res.data.message);
     window.location.reload(false);
   })

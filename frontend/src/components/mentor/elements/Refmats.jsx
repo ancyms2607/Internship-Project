@@ -15,7 +15,7 @@ import MentSidebar from "./MentSidebar";
     
     
     useEffect(()=>{
-      axios.get('http://localhost:3001/api/refmat/getRef').then((res)=>{
+      axios.get('/api/refmat/getRef').then((res)=>{
         
         setRef(...reference,res.data)
         
@@ -24,7 +24,7 @@ import MentSidebar from "./MentSidebar";
 
 
 function removeRef(id){
-  axios.delete('http://localhost:3001/api/refmat/deleteRef/'+id).then((res)=>{
+  axios.delete('/api/refmat/deleteRef/'+id).then((res)=>{
    
   alert(res.data.message);
   window.location.reload(false);

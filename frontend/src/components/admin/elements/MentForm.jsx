@@ -20,7 +20,7 @@ const MentForm = (props) => {
      function submitHandler(){
           
           if(props.method==="put"){
-            axios.put("http://localhost:3001/api/mentor/updateDetails/"+props.data._id,form)
+            axios.put("/api/mentor/updateDetails/"+props.data._id,form)
             .then((res)=>{
              
               if (res) {
@@ -32,7 +32,7 @@ const MentForm = (props) => {
               }
             })}
             else{
-            axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
+            axios.post('/api/mentor/addDetails',form).then((res)=>{
               alert(res.data.message);
               navigate('/mentors')
                

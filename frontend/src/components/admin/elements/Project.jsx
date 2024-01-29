@@ -31,7 +31,7 @@ import AddTopic from "./AddTopic";
       }
 
       function removeTopic(id){
-        axios.delete('http://localhost:3001/api/subject/deleteSubject/'+id).then((res)=>{
+        axios.delete('/api/subject/deleteSubject/'+id).then((res)=>{
           alert(res.data.message);
           window.location.reload(false);
         })

@@ -17,7 +17,7 @@ var[update,setUpdate] = useState(false);
 var[singleValue,setSingleValue]=useState([])
 
   useEffect(()=>{
-    axios.get('http://localhost:3001/api/evaluate/').then((res)=>{
+    axios.get('/api/evaluate/').then((res)=>{
       console.log(res.data);
       setForm(res.data)
     })

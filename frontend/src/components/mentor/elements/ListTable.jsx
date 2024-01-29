@@ -14,7 +14,7 @@ const ListTable = () => {
   const [list,setList]= useState([])
     
 useEffect(()=>{
-    axios.get('http://localhost:3001/api/list').then((res)=>{
+    axios.get('/api/list').then((res)=>{
       setList(res.data);
     })
 },[])

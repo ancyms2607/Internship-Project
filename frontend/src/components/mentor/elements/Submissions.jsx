@@ -42,7 +42,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
   
 function removeSub(id){
-  axios.delete('http://localhost:3001/api/list/deleteSubmission/'+id).then((res)=>{
+  axios.delete('/api/list/deleteSubmission/'+id).then((res)=>{
     alert(res.data.message);
     window.location.reload(false);
   })

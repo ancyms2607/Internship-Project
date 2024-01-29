@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom'
  
- const REGISTER_URL = 'http://localhost:3001/api/auth/login';
+ const REGISTER_URL = '/api/auth/login';
 
  const Login = () => {
       const userRef = useRef();
