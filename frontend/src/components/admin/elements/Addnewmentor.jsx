@@ -18,7 +18,7 @@ const Addnewmentor = (props) => {
      const navigate=useNavigate()
 
      function submitHandler(){
-           axios.post('/api/mentor/addDetails',form).then((res)=>{
+           axios.post('http://localhost:3001/api/mentor/addDetails',form).then((res)=>{
             alert(res.data.message)
             navigate('/mentors');
            })

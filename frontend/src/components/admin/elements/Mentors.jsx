@@ -20,7 +20,7 @@ const Mentors = () => {
 
 
  useEffect(()=>{
-        axios.get('/api/mentor/getDetails').then((res)=>{
+        axios.get('http://localhost:3001/api/mentor/getDetails').then((res)=>{
           setMentor(res.data)
           console.log(mentor)
         })

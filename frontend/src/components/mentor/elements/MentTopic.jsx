@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
         })
   
     useEffect(()=>{
-      axios.get('/api/project/').then((res)=>{
+      axios.get('http://localhost:3001/api/project/').then((res)=>{
         console.log(res.data);
         setTopics(res.data);
       })

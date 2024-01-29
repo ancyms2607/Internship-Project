@@ -18,7 +18,7 @@ const Valuation = () => {
     const navigate=useNavigate()
 
     function submitValuation(){
-        axios.post('/api/evaluate/',form).then((res)=>{
+        axios.post('http://localhost:3001/api/evaluate/',form).then((res)=>{
          alert(res.data.message)
          navigate('/evals');
         })

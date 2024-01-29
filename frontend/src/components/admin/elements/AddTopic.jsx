@@ -14,7 +14,7 @@ const AddTopic = (props) => {
     function submitForm(){
     
       if(props.method==="put"){
-        axios.put("/api/subject/editSubject/"+props.data._id,form)
+        axios.put("http://localhost:3001/api/subject/editSubject/"+props.data._id,form)
         .then((res)=>{
          
           if (res.data.message==="Topic updated successfully") {
@@ -27,7 +27,7 @@ const AddTopic = (props) => {
           }
         })}
         else{
-        axios.post('/api/subject/addSubject',form).then((res)=>{
+        axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
           alert(res.data.message);
        
         })}

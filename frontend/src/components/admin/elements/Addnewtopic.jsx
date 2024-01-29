@@ -17,7 +17,7 @@ const Addnewtopic = () => {
 
    function submitForm(){
     
-       axios.post('/api/subject/addSubject',form).then((res)=>{
+       axios.post('http://localhost:3001/api/subject/addSubject',form).then((res)=>{
          alert(res.data.message);
          navigate('/topics')
 

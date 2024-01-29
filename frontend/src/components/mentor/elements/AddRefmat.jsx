@@ -12,7 +12,7 @@ const AddRefmat = (props) => {
 
     function submitform(){
         
-        axios.post("/api/refmat/addRef",form)
+        axios.post("http://localhost:3001/api/refmat/addRef",form)
         .then((res)=>{
           if(res.data.message==="Reference material added!"){
             alert(res.data.message)
