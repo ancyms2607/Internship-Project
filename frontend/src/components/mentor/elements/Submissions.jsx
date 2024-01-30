@@ -20,7 +20,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
   useEffect(()=>{
     try {
-      axios.get('http://localhost:3001/api/list').then((res)=>{
+      axios.get('/api/list').then((res)=>{
           setSub(res.data)
       })
     } catch (error) {

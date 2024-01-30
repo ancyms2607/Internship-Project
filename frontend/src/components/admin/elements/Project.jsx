@@ -18,7 +18,7 @@ import AddTopic from "./AddTopic";
     var[singleValue,setSingleValue]=useState([])
  
       useEffect(()=>{
-        axios.get('http://localhost:3001/api/subject/getSubject').then((res)=>{
+        axios.get('/api/subject/getSubject').then((res)=>{
           console.log(res.data);
           setData(...topicData, res.data);
         })
