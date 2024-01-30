@@ -44,26 +44,26 @@ function App() {
 
 
      <Route path='/dashadmin' element={<PrivateRoute Component={Dashboard}/>}/>
-     <Route path='/topics' element={<Main child={<Project/>}/>}/>
-     <Route path='/addtopic'element={<Main child={<AddTopic/>}/>}/>
-     <Route path='/addnewtopic' element={<Main child={<Addnewtopic/>}/>}/>
-     <Route path='/mentors' element={<Main child={<Mentors/>}/>} />
-     <Route path='/updatementor' element={<Main child={<MentForm/>}/>}/>
-     <Route path='/addnewmentor' element={<Main child={<Addnewmentor/>}/>}/>
+     <Route path='/topics' element={<PrivateRoute Component={Project}/>}/>
+     <Route path='/addtopic'element={<PrivateRoute Component={AddTopic}/>}/>
+     <Route path='/addnewtopic' element={<PrivateRoute Component={Addnewtopic}/>}/>
+     <Route path='/mentors' element={<PrivateRoute Component={Mentors}/>} />
+     <Route path='/updatementor' element={<PrivateRoute Component={MentForm}/>}/>
+     <Route path='/addnewmentor' element={<PrivateRoute Component={Addnewmentor}/>}/>
 
 
      <Route path='/dashment' element={<PrivateRoute Component={MentDashboard}/>}/>
-     <Route path='/menttopics' element={<Common child={<MentTopic/>}/>}/>
+     <Route path='/menttopics' element={<PrivateRoute Component={MentTopic}/>}/>
 
      <Route path='/table' element={<ListTable/>}/>
      
-     <Route path='/mentsub'element={<Common child={<Submissions/>}/>}/>
-     <Route path='/evals'element={<Common child={<Evaluations/>}/>}/>
-     <Route path='/evaluate' element={<Common child={<Evaluate/>}/>}/>
-     <Route path='/valuation' element={<Common child={<Valuation/>}/>}/>
+     <Route path='/mentsub'element={<PrivateRoute Component={Submissions}/>}/>
+     <Route path='/evals'element={<PrivateRoute Component={Evaluations}/>}/>
+     <Route path='/evaluate' element={<PrivateRoute Component={Evaluate}/>}/>
+     <Route path='/valuation' element={<PrivateRoute Component={Valuation}/>}/>
 
-     <Route path='/refmaterials' element={<Common child={<Refmats/>}/>}/>
-     <Route path='/addrefers' element={<Common child={<AddRefmat/>}/>}/>
+     <Route path='/refmaterials' element={<PrivateRoute Component={Refmats}/>}/>
+     <Route path='/addrefers' element={<PrivateRoute Component={AddRefmat}/>}/>
      
      
     
